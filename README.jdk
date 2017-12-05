@@ -14,12 +14,12 @@ More specifically, you should:
 1. Update the JDK jar files.  In a clone of the Checker Framework, do:
 
     cd checker
-    ant jdks.jar
+    ant jdk.jar
 
-2. Upload the jdks.jar to this repository.  You can do by committing it to
+2. Upload jdk8.jar to this repository.  You can do by committing it to
 https://github.com/typetools/annotated-libraries or via
 https://github.com/typetools/annotated-libraries/upload/master.  This should
-replace the jdk.jar at master.
+replace the jdk8.jar at master.
 
 3. Ensure that the pull request downloads the JDK using the commit hash that
 adds the new version.
