@@ -11,18 +11,20 @@ checker/build.xml to download that versions of the jdk.
 
 More specifically, you should:
 
-1. Update the JDK jar files.  In a clone of the Checker Framework, do:
+1. Update the JDK jar files in this repository.
+
+1a. In a clone of the Checker Framework, do:
 
     cd checker
     ant jdk.jar
 
-2. Upload jdk8.jar to this repository.  You can do by committing it to
+1b. Upload jdk8.jar to this repository.  You can do by committing it to
 https://github.com/typetools/annotated-libraries or via
-https://github.com/typetools/annotated-libraries/upload/master.  This should
-replace the jdk8.jar at master.
+https://github.com/typetools/annotated-libraries/upload/master.
 
-3. Ensure that the pull request downloads the JDK using the commit hash that
-adds the new version.
+2. In your Checker Framework pull request, in file `checker/build.xml`, in
+the `download-jdk` task, change the hash to the hash of your commit to this
+repository.
 
 3. Wait for Travis to successfully build the pull request.
 

@@ -13,6 +13,8 @@ to obtain more precise type-checking with fewer false positive warnings.
 If you annotate a new library, please inform the Checker Framework developers
 so that they can include it in the Checker Framework distribution.
 
+For jdk8.jar, see file `README.jdk`.
+
 When adding a .jar or .astub file to this directory, update the below list.
 In general, old files need not be removed; that way, we accommodate users
 regardless of which version of a library they wish to use.
