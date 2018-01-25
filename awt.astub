@@ -1,0 +1,3328 @@
+package java.awt;
+
+import org.checkerframework.checker.nullness.qual.*;
+
+class AWTError extends Error {
+    AWTError(String arg0);
+}
+
+class AWTEvent extends EventObject {
+    protected int id;
+    protected boolean consumed;
+    static final long COMPONENT_EVENT_MASK;
+    static final long CONTAINER_EVENT_MASK;
+    static final long FOCUS_EVENT_MASK;
+    static final long KEY_EVENT_MASK;
+    static final long MOUSE_EVENT_MASK;
+    static final long MOUSE_MOTION_EVENT_MASK;
+    static final long WINDOW_EVENT_MASK;
+    static final long ACTION_EVENT_MASK;
+    static final long ADJUSTMENT_EVENT_MASK;
+    static final long ITEM_EVENT_MASK;
+    static final long TEXT_EVENT_MASK;
+    static final long INPUT_METHOD_EVENT_MASK;
+    static final long PAINT_EVENT_MASK;
+    static final long INVOCATION_EVENT_MASK;
+    static final long HIERARCHY_EVENT_MASK;
+    static final long HIERARCHY_BOUNDS_EVENT_MASK;
+    static final long MOUSE_WHEEL_EVENT_MASK;
+    static final long WINDOW_STATE_EVENT_MASK;
+    static final long WINDOW_FOCUS_EVENT_MASK;
+    static final int RESERVED_ID_MAX;
+    AWTEvent(Event arg0);
+    AWTEvent(Object arg0, int arg1);
+    void setSource(Object arg0);
+    int getID();
+    String toString();
+    String paramString();
+    protected void consume();
+    protected boolean isConsumed();
+}
+
+class AWTEventMulticaster implements ComponentListener, ContainerListener, FocusListener, KeyListener, MouseListener, MouseMotionListener, WindowListener, WindowFocusListener, WindowStateListener, ActionListener, ItemListener, AdjustmentListener, TextListener, InputMethodListener, HierarchyListener, HierarchyBoundsListener, MouseWheelListener {
+    protected final EventListener a;
+    protected final EventListener b;
+    protected AWTEventMulticaster(EventListener arg0, EventListener arg1);
+    protected @Nullable EventListener remove(@Nullable EventListener arg0);
+    void componentResized(ComponentEvent arg0);
+    void componentMoved(ComponentEvent arg0);
+    void componentShown(ComponentEvent arg0);
+    void componentHidden(ComponentEvent arg0);
+    void componentAdded(ContainerEvent arg0);
+    void componentRemoved(ContainerEvent arg0);
+    void focusGained(FocusEvent arg0);
+    void focusLost(FocusEvent arg0);
+    void keyTyped(KeyEvent arg0);
+    void keyPressed(KeyEvent arg0);
+    void keyReleased(KeyEvent arg0);
+    void mouseClicked(MouseEvent arg0);
+    void mousePressed(MouseEvent arg0);
+    void mouseReleased(MouseEvent arg0);
+    void mouseEntered(MouseEvent arg0);
+    void mouseExited(MouseEvent arg0);
+    void mouseDragged(MouseEvent arg0);
+    void mouseMoved(MouseEvent arg0);
+    void windowOpened(WindowEvent arg0);
+    void windowClosing(WindowEvent arg0);
+    void windowClosed(WindowEvent arg0);
+    void windowIconified(WindowEvent arg0);
+    void windowDeiconified(WindowEvent arg0);
+    void windowActivated(WindowEvent arg0);
+    void windowDeactivated(WindowEvent arg0);
+    void windowStateChanged(WindowEvent arg0);
+    void windowGainedFocus(WindowEvent arg0);
+    void windowLostFocus(WindowEvent arg0);
+    void actionPerformed(ActionEvent arg0);
+    void itemStateChanged(ItemEvent arg0);
+    void adjustmentValueChanged(AdjustmentEvent arg0);
+    void textValueChanged(TextEvent arg0);
+    void inputMethodTextChanged(InputMethodEvent arg0);
+    void caretPositionChanged(InputMethodEvent arg0);
+    void hierarchyChanged(HierarchyEvent arg0);
+    void ancestorMoved(HierarchyEvent arg0);
+    void ancestorResized(HierarchyEvent arg0);
+    void mouseWheelMoved(MouseWheelEvent arg0);
+    static ComponentListener add(ComponentListener arg0, ComponentListener arg1);
+    static ContainerListener add(ContainerListener arg0, ContainerListener arg1);
+    static FocusListener add(FocusListener arg0, FocusListener arg1);
+    static KeyListener add(KeyListener arg0, KeyListener arg1);
+    static MouseListener add(MouseListener arg0, MouseListener arg1);
+    static MouseMotionListener add(MouseMotionListener arg0, MouseMotionListener arg1);
+    static WindowListener add(WindowListener arg0, WindowListener arg1);
+    static WindowStateListener add(WindowStateListener arg0, WindowStateListener arg1);
+    static WindowFocusListener add(WindowFocusListener arg0, WindowFocusListener arg1);
+    static ActionListener add(ActionListener arg0, ActionListener arg1);
+    static ItemListener add(ItemListener arg0, ItemListener arg1);
+    static AdjustmentListener add(AdjustmentListener arg0, AdjustmentListener arg1);
+    static TextListener add(TextListener arg0, TextListener arg1);
+    static InputMethodListener add(InputMethodListener arg0, InputMethodListener arg1);
+    static HierarchyListener add(HierarchyListener arg0, HierarchyListener arg1);
+    static HierarchyBoundsListener add(HierarchyBoundsListener arg0, HierarchyBoundsListener arg1);
+    static MouseWheelListener add(MouseWheelListener arg0, MouseWheelListener arg1);
+    static ComponentListener remove(ComponentListener arg0, ComponentListener arg1);
+    static ContainerListener remove(ContainerListener arg0, ContainerListener arg1);
+    static FocusListener remove(FocusListener arg0, FocusListener arg1);
+    static KeyListener remove(KeyListener arg0, KeyListener arg1);
+    static MouseListener remove(MouseListener arg0, MouseListener arg1);
+    static MouseMotionListener remove(MouseMotionListener arg0, MouseMotionListener arg1);
+    static WindowListener remove(WindowListener arg0, WindowListener arg1);
+    static WindowStateListener remove(WindowStateListener arg0, WindowStateListener arg1);
+    static WindowFocusListener remove(WindowFocusListener arg0, WindowFocusListener arg1);
+    static ActionListener remove(ActionListener arg0, ActionListener arg1);
+    static ItemListener remove(ItemListener arg0, ItemListener arg1);
+    static AdjustmentListener remove(AdjustmentListener arg0, AdjustmentListener arg1);
+    static TextListener remove(TextListener arg0, TextListener arg1);
+    static InputMethodListener remove(InputMethodListener arg0, InputMethodListener arg1);
+    static HierarchyListener remove(HierarchyListener arg0, HierarchyListener arg1);
+    static HierarchyBoundsListener remove(HierarchyBoundsListener arg0, HierarchyBoundsListener arg1);
+    static MouseWheelListener remove(MouseWheelListener arg0, MouseWheelListener arg1);
+    protected static EventListener addInternal(@Nullable EventListener arg0, @Nullable EventListener arg1);
+    protected static @Nullable EventListener removeInternal(@Nullable EventListener arg0, EventListener arg1);
+    protected void saveInternal(ObjectOutputStream arg0, String arg1) throws IOException;
+    protected static void save(ObjectOutputStream arg0, String arg1, EventListener arg2) throws IOException;
+    static <T> @Nullable T[] getListeners(@Nullable EventListener arg0, Class<T> arg1);
+}
+
+class AWTException extends Exception {
+    AWTException(String arg0);
+}
+
+class AWTKeyStroke implements Serializable {
+    protected AWTKeyStroke();
+    protected AWTKeyStroke(char arg0, int arg1, int arg2, boolean arg3);
+    protected static void registerSubclass(Class<?> arg0);
+    static AWTKeyStroke getAWTKeyStroke(char arg0);
+    static AWTKeyStroke getAWTKeyStroke(Character arg0, int arg1);
+    static AWTKeyStroke getAWTKeyStroke(int arg0, int arg1, boolean arg2);
+    static AWTKeyStroke getAWTKeyStroke(int arg0, int arg1);
+    static AWTKeyStroke getAWTKeyStrokeForEvent(KeyEvent arg0);
+    static AWTKeyStroke getAWTKeyStroke(String arg0);
+    char getKeyChar();
+    int getKeyCode();
+    int getModifiers();
+    boolean isOnKeyRelease();
+    int getKeyEventType();
+    int hashCode();
+    boolean equals(Object arg0);
+    String toString();
+    protected Object readResolve() throws ObjectStreamException;
+}
+
+class AWTPermission extends BasicPermission {
+    AWTPermission(String arg0);
+    AWTPermission(String arg0, @Nullable String arg1);
+}
+
+interface ActiveEvent {
+    void dispatch();
+}
+
+interface Adjustable {
+    static final int HORIZONTAL;
+    static final int VERTICAL;
+    static final int NO_ORIENTATION;
+    int getOrientation();
+    void setMinimum(int arg0);
+    int getMinimum();
+    void setMaximum(int arg0);
+    int getMaximum();
+    void setUnitIncrement(int arg0);
+    int getUnitIncrement();
+    void setBlockIncrement(int arg0);
+    int getBlockIncrement();
+    void setVisibleAmount(int arg0);
+    int getVisibleAmount();
+    void setValue(int arg0);
+    int getValue();
+    void addAdjustmentListener(AdjustmentListener arg0);
+    void removeAdjustmentListener(AdjustmentListener arg0);
+}
+
+class AlphaComposite implements Composite {
+    static final int CLEAR;
+    static final int SRC;
+    static final int DST;
+    static final int SRC_OVER;
+    static final int DST_OVER;
+    static final int SRC_IN;
+    static final int DST_IN;
+    static final int SRC_OUT;
+    static final int DST_OUT;
+    static final int SRC_ATOP;
+    static final int DST_ATOP;
+    static final int XOR;
+    static final AlphaComposite Clear;
+    static final AlphaComposite Src;
+    static final AlphaComposite Dst;
+    static final AlphaComposite SrcOver;
+    static final AlphaComposite DstOver;
+    static final AlphaComposite SrcIn;
+    static final AlphaComposite DstIn;
+    static final AlphaComposite SrcOut;
+    static final AlphaComposite DstOut;
+    static final AlphaComposite SrcAtop;
+    static final AlphaComposite DstAtop;
+    static final AlphaComposite Xor;
+    static AlphaComposite getInstance(int arg0);
+    static AlphaComposite getInstance(int arg0, float arg1);
+    CompositeContext createContext(ColorModel arg0, ColorModel arg1, RenderingHints arg2);
+    float getAlpha();
+    int getRule();
+    AlphaComposite derive(int arg0);
+    AlphaComposite derive(float arg0);
+    int hashCode();
+    boolean equals(@Nullable Object arg0);
+}
+
+class BasicStroke implements Stroke {
+    static final int JOIN_MITER;
+    static final int JOIN_ROUND;
+    static final int JOIN_BEVEL;
+    static final int CAP_BUTT;
+    static final int CAP_ROUND;
+    static final int CAP_SQUARE;
+    BasicStroke(float arg0, int arg1, int arg2, float arg3, float @Nullable [] arg4, float arg5);
+    BasicStroke(float arg0, int arg1, int arg2, float arg3);
+    BasicStroke(float arg0, int arg1, int arg2);
+    BasicStroke(float arg0);
+    BasicStroke();
+    Shape createStrokedShape(Shape arg0);
+    float getLineWidth();
+    int getEndCap();
+    int getLineJoin();
+    float getMiterLimit();
+    float[] getDashArray();
+    float getDashPhase();
+    int hashCode();
+    boolean equals(Object arg0);
+}
+
+class BorderLayout implements LayoutManager2, Serializable {
+    static final String NORTH;
+    static final String SOUTH;
+    static final String EAST;
+    static final String WEST;
+    static final String CENTER;
+    static final String BEFORE_FIRST_LINE;
+    static final String AFTER_LAST_LINE;
+    static final String BEFORE_LINE_BEGINS;
+    static final String AFTER_LINE_ENDS;
+    static final String PAGE_START;
+    static final String PAGE_END;
+    static final String LINE_START;
+    static final String LINE_END;
+    BorderLayout();
+    BorderLayout(int arg0, int arg1);
+    int getHgap();
+    void setHgap(int arg0);
+    int getVgap();
+    void setVgap(int arg0);
+    void addLayoutComponent(Component arg0, Object arg1);
+    void addLayoutComponent(String arg0, Component arg1);
+    void removeLayoutComponent(Component arg0);
+    @Nullable Component getLayoutComponent(Object arg0);
+    @Nullable Component getLayoutComponent(Container arg0, Object arg1);
+    @Nullable Object getConstraints(@Nullable Component arg0);
+    Dimension minimumLayoutSize(Container arg0);
+    Dimension preferredLayoutSize(Container arg0);
+    Dimension maximumLayoutSize(Container arg0);
+    float getLayoutAlignmentX(Container arg0);
+    float getLayoutAlignmentY(Container arg0);
+    void invalidateLayout(Container arg0);
+    void layoutContainer(Container arg0);
+    String toString();
+}
+
+class BufferCapabilities implements Cloneable {
+    BufferCapabilities(ImageCapabilities arg0, ImageCapabilities arg1, @Nullable FlipContents arg2);
+    ImageCapabilities getFrontBufferCapabilities();
+    ImageCapabilities getBackBufferCapabilities();
+    boolean isPageFlipping();
+    @Nullable FlipContents getFlipContents();
+    boolean isFullScreenRequired();
+    boolean isMultiBufferAvailable();
+    Object clone();
+}
+class BufferCapabilities$FlipContents extends AttributeValue {
+    static final FlipContents UNDEFINED;
+    static final FlipContents BACKGROUND;
+    static final FlipContents PRIOR;
+    static final FlipContents COPIED;
+}
+
+class Button extends Component implements Accessible {
+    Button() throws HeadlessException;
+    Button(@Nullable String arg0) throws HeadlessException;
+    void addNotify();
+    @Nullable String getLabel();
+    void setLabel(@Nullable String arg0);
+    @Nullable void setActionCommand(@Nullable String arg0);
+    String getActionCommand();
+    void addActionListener(@Nullable ActionListener arg0);
+    void removeActionListener(@Nullable ActionListener arg0);
+    ActionListener[] getActionListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processActionEvent(ActionEvent arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Button$AccessibleAWTButton extends AccessibleAWTComponent implements AccessibleAction, AccessibleValue {
+    protected AccessibleAWTButton();
+    String getAccessibleName();
+    AccessibleAction getAccessibleAction();
+    AccessibleValue getAccessibleValue();
+    int getAccessibleActionCount();
+    String getAccessibleActionDescription(int arg0);
+    boolean doAccessibleAction(int arg0);
+    Number getCurrentAccessibleValue();
+    boolean setCurrentAccessibleValue(Number arg0);
+    Number getMinimumAccessibleValue();
+    Number getMaximumAccessibleValue();
+    AccessibleRole getAccessibleRole();
+}
+
+class Canvas extends Component implements Accessible {
+    Canvas();
+    Canvas(GraphicsConfiguration arg0);
+    void addNotify();
+    void paint(Graphics arg0);
+    void update(Graphics arg0);
+    void createBufferStrategy(int arg0);
+    void createBufferStrategy(int arg0, BufferCapabilities arg1) throws AWTException;
+    @Nullable BufferStrategy getBufferStrategy();
+    AccessibleContext getAccessibleContext();
+}
+class Canvas$AccessibleAWTCanvas extends AccessibleAWTComponent {
+    protected AccessibleAWTCanvas();
+    AccessibleRole getAccessibleRole();
+}
+
+class CardLayout implements LayoutManager2, Serializable {
+    CardLayout();
+    CardLayout(int arg0, int arg1);
+    int getHgap();
+    void setHgap(int arg0);
+    int getVgap();
+    void setVgap(int arg0);
+    void addLayoutComponent(Component arg0, Object arg1);
+    void addLayoutComponent(String arg0, Component arg1);
+    void removeLayoutComponent(Component arg0);
+    Dimension preferredLayoutSize(Container arg0);
+    Dimension minimumLayoutSize(Container arg0);
+    Dimension maximumLayoutSize(Container arg0);
+    float getLayoutAlignmentX(Container arg0);
+    float getLayoutAlignmentY(Container arg0);
+    void invalidateLayout(Container arg0);
+    void layoutContainer(Container arg0);
+    void first(Container arg0);
+    void next(Container arg0);
+    void previous(Container arg0);
+    void last(Container arg0);
+    void show(Container arg0, String arg1);
+    String toString();
+}
+
+class Checkbox extends Component implements ItemSelectable, Accessible {
+    Checkbox() throws HeadlessException;
+    Checkbox(@Nullable String arg0) throws HeadlessException;
+    Checkbox(@Nullable String arg0, boolean arg1) throws HeadlessException;
+    Checkbox(@Nullable String arg0, boolean arg1, @Nullable CheckboxGroup arg2) throws HeadlessException;
+    Checkbox(@Nullable String arg0, @Nullable CheckboxGroup arg1, boolean arg2) throws HeadlessException;
+    void addNotify();
+    @Nullable String getLabel();
+    void setLabel(@Nullable String arg0);
+    boolean getState();
+    void setState(boolean arg0);
+    Object @Nullable [] getSelectedObjects();
+    @Nullable CheckboxGroup getCheckboxGroup();
+    void setCheckboxGroup(@Nullable CheckboxGroup arg0);
+    void addItemListener(@Nullable ItemListener arg0);
+    void removeItemListener(@Nullable ItemListener arg0);
+    ItemListener[] getItemListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processItemEvent(ItemEvent arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Checkbox$AccessibleAWTCheckbox extends AccessibleAWTComponent implements ItemListener, AccessibleAction, AccessibleValue {
+    AccessibleAWTCheckbox();
+    void itemStateChanged(ItemEvent arg0);
+    AccessibleAction getAccessibleAction();
+    AccessibleValue getAccessibleValue();
+    int getAccessibleActionCount();
+    String getAccessibleActionDescription(int arg0);
+    boolean doAccessibleAction(int arg0);
+    @Nullable Number getCurrentAccessibleValue();
+    boolean setCurrentAccessibleValue(Number arg0);
+    @Nullable Number getMinimumAccessibleValue();
+    @Nullable Number getMaximumAccessibleValue();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+}
+
+class CheckboxGroup implements Serializable {
+    CheckboxGroup();
+    @Nullable Checkbox getSelectedCheckbox();
+    Checkbox getCurrent();
+    void setSelectedCheckbox(@Nullable Checkbox arg0);
+    void setCurrent(Checkbox arg0);
+    String toString();
+}
+
+class CheckboxMenuItem extends MenuItem implements ItemSelectable, Accessible {
+    CheckboxMenuItem() throws HeadlessException;
+    CheckboxMenuItem(@Nullable String arg0) throws HeadlessException;
+    CheckboxMenuItem(@Nullable String arg0, boolean arg1) throws HeadlessException;
+    void addNotify();
+    boolean getState();
+    void setState(boolean arg0);
+    Object @Nullable [] getSelectedObjects();
+    void addItemListener(@Nullable ItemListener arg0);
+    void removeItemListener(@Nullable ItemListener arg0);
+    ItemListener[] getItemListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processItemEvent(ItemEvent arg0);
+    String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class CheckboxMenuItem$AccessibleAWTCheckboxMenuItem extends AccessibleAWTMenuItem implements AccessibleAction, AccessibleValue {
+    protected AccessibleAWTCheckboxMenuItem();
+    AccessibleAction getAccessibleAction();
+    AccessibleValue getAccessibleValue();
+    int getAccessibleActionCount();
+    String getAccessibleActionDescription(int arg0);
+    boolean doAccessibleAction(int arg0);
+    @Nullable Number getCurrentAccessibleValue();
+    boolean setCurrentAccessibleValue(Number arg0);
+    @Nullable Number getMinimumAccessibleValue();
+    @Nullable Number getMaximumAccessibleValue();
+    AccessibleRole getAccessibleRole();
+}
+
+class Choice extends Component implements ItemSelectable, Accessible {
+    Choice() throws HeadlessException;
+    void addNotify();
+    int getItemCount();
+    int countItems();
+    String getItem(int arg0);
+    void add(String arg0);
+    void addItem(String arg0);
+    void insert(String arg0, int arg1);
+    void remove(String arg0);
+    void remove(int arg0);
+    void removeAll();
+    String getSelectedItem();
+    Object @Nullable [] getSelectedObjects();
+    int getSelectedIndex();
+    void select(int arg0);
+    void select(String arg0);
+    void addItemListener(@Nullable ItemListener arg0);
+    void removeItemListener(@Nullable ItemListener arg0);
+    ItemListener[] getItemListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processItemEvent(ItemEvent arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Choice$AccessibleAWTChoice extends AccessibleAWTComponent implements AccessibleAction {
+    AccessibleAWTChoice();
+    AccessibleAction getAccessibleAction();
+    AccessibleRole getAccessibleRole();
+    int getAccessibleActionCount();
+    String getAccessibleActionDescription(int arg0);
+    boolean doAccessibleAction(int arg0);
+}
+
+class Color implements Paint, Serializable {
+    static final Color white;
+    static final Color WHITE;
+    static final Color lightGray;
+    static final Color LIGHT_GRAY;
+    static final Color gray;
+    static final Color GRAY;
+    static final Color darkGray;
+    static final Color DARK_GRAY;
+    static final Color black;
+    static final Color BLACK;
+    static final Color red;
+    static final Color RED;
+    static final Color pink;
+    static final Color PINK;
+    static final Color orange;
+    static final Color ORANGE;
+    static final Color yellow;
+    static final Color YELLOW;
+    static final Color green;
+    static final Color GREEN;
+    static final Color magenta;
+    static final Color MAGENTA;
+    static final Color cyan;
+    static final Color CYAN;
+    static final Color blue;
+    static final Color BLUE;
+    Color(int arg0, int arg1, int arg2);
+    Color(int arg0, int arg1, int arg2, int arg3);
+    Color(int arg0);
+    Color(int arg0, boolean arg1);
+    Color(float arg0, float arg1, float arg2);
+    Color(float arg0, float arg1, float arg2, float arg3);
+    Color(ColorSpace arg0, float[] arg1, float arg2);
+    int getRed();
+    int getGreen();
+    int getBlue();
+    int getAlpha();
+    int getRGB();
+    Color brighter();
+    Color darker();
+    int hashCode();
+    boolean equals(@Nullable Object arg0);
+    String toString();
+    static Color decode(String arg0) throws NumberFormatException;
+    static @Nullable Color getColor(String arg0);
+    static Color getColor(String arg0, Color arg1);
+    static Color getColor(String arg0, int arg1);
+    static int HSBtoRGB(float arg0, float arg1, float arg2);
+    static float[] RGBtoHSB(int arg0, int arg1, int arg2, float @Nullable [] arg3);
+    static Color getHSBColor(float arg0, float arg1, float arg2);
+    float[] getRGBComponents(float @Nullable [] arg0);
+    float[] getRGBColorComponents(float @Nullable [] arg0);
+    float[] getComponents(float @Nullable [] arg0);
+    float[] getColorComponents(float @Nullable [] arg0);
+    float[] getComponents(ColorSpace arg0, float @Nullable [] arg1);
+    float[] getColorComponents(ColorSpace arg0, float @Nullable [] arg1);
+    ColorSpace getColorSpace();
+    PaintContext createContext(@Nullable ColorModel arg0, Rectangle arg1, Rectangle2D arg2, AffineTransform arg3, RenderingHints arg4);
+    int getTransparency();
+}
+
+class Component implements ImageObserver, MenuContainer, Serializable {
+    static final float TOP_ALIGNMENT;
+    static final float CENTER_ALIGNMENT;
+    static final float BOTTOM_ALIGNMENT;
+    static final float LEFT_ALIGNMENT;
+    static final float RIGHT_ALIGNMENT;
+    protected AccessibleContext accessibleContext;
+    protected Component();
+    String getName();
+    void setName(String arg0);
+    Container getParent();
+    ComponentPeer getPeer();
+    void setDropTarget(DropTarget arg0);
+    DropTarget getDropTarget();
+    @Nullable GraphicsConfiguration getGraphicsConfiguration();
+    Object getTreeLock();
+    Toolkit getToolkit();
+    boolean isValid();
+    boolean isDisplayable();
+    boolean isVisible();
+    @Nullable Point getMousePosition() throws HeadlessException;
+    boolean isShowing();
+    boolean isEnabled();
+    void setEnabled(boolean arg0);
+    void enable();
+    void enable(boolean arg0);
+    void disable();
+    boolean isDoubleBuffered();
+    void enableInputMethods(boolean arg0);
+    void setVisible(boolean arg0);
+    void show();
+    void show(boolean arg0);
+    void hide();
+    Color getForeground();
+    void setForeground(@Nullable Color arg0);
+    boolean isForegroundSet();
+    Color getBackground();
+    void setBackground(@Nullable Color arg0);
+    boolean isBackgroundSet();
+    Font getFont();
+    void setFont(@Nullable Font arg0);
+    boolean isFontSet();
+    Locale getLocale();
+    void setLocale(Locale arg0);
+    ColorModel getColorModel();
+    Point getLocation();
+    Point getLocationOnScreen();
+    Point location();
+    void setLocation(int arg0, int arg1);
+    void move(int arg0, int arg1);
+    void setLocation(Point arg0);
+    Dimension getSize();
+    Dimension size();
+    void setSize(int arg0, int arg1);
+    void resize(int arg0, int arg1);
+    void setSize(Dimension arg0);
+    void resize(Dimension arg0);
+    Rectangle getBounds();
+    Rectangle bounds();
+    void setBounds(int arg0, int arg1, int arg2, int arg3);
+    void reshape(int arg0, int arg1, int arg2, int arg3);
+    void setBounds(Rectangle arg0);
+    int getX();
+    int getY();
+    int getWidth();
+    int getHeight();
+    Rectangle getBounds(@Nullable Rectangle arg0);
+    Dimension getSize(@Nullable Dimension arg0);
+    Point getLocation(@Nullable Point arg0);
+    boolean isOpaque();
+    boolean isLightweight();
+    void setPreferredSize(@Nullable Dimension arg0);
+    boolean isPreferredSizeSet();
+    Dimension getPreferredSize();
+    Dimension preferredSize();
+    void setMinimumSize(@Nullable Dimension arg0);
+    boolean isMinimumSizeSet();
+    Dimension getMinimumSize();
+    Dimension minimumSize();
+    void setMaximumSize(@Nullable Dimension arg0);
+    boolean isMaximumSizeSet();
+    Dimension getMaximumSize();
+    float getAlignmentX();
+    float getAlignmentY();
+    int getBaseline(int arg0, int arg1);
+    BaselineResizeBehavior getBaselineResizeBehavior();
+    void doLayout();
+    void layout();
+    void validate();
+    void invalidate();
+    void revalidate();
+    @Nullable Graphics getGraphics();
+    FontMetrics getFontMetrics(Font arg0);
+    void setCursor(@Nullable Cursor arg0);
+    Cursor getCursor();
+    boolean isCursorSet();
+    void paint(Graphics arg0);
+    void update(Graphics arg0);
+    void paintAll(Graphics arg0);
+    void repaint();
+    void repaint(long arg0);
+    void repaint(int arg0, int arg1, int arg2, int arg3);
+    void repaint(long arg0, int arg1, int arg2, int arg3, int arg4);
+    void print(Graphics arg0);
+    void printAll(Graphics arg0);
+    boolean imageUpdate(Image arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+    Image createImage(ImageProducer arg0);
+    @Nullable Image createImage(int arg0, int arg1);
+    @Nullable VolatileImage createVolatileImage(int arg0, int arg1);
+    VolatileImage createVolatileImage(int arg0, int arg1, ImageCapabilities arg2) throws AWTException;
+    boolean prepareImage(Image arg0, ImageObserver arg1);
+    boolean prepareImage(Image arg0, int arg1, int arg2, ImageObserver arg3);
+    int checkImage(Image arg0, ImageObserver arg1);
+    int checkImage(Image arg0, int arg1, int arg2, ImageObserver arg3);
+    void setIgnoreRepaint(boolean arg0);
+    boolean getIgnoreRepaint();
+    boolean contains(int arg0, int arg1);
+    boolean inside(int arg0, int arg1);
+    boolean contains(Point arg0);
+    @Nullable Component getComponentAt(int arg0, int arg1);
+    Component locate(int arg0, int arg1);
+    Component getComponentAt(Point arg0);
+    void deliverEvent(Event arg0);
+    void dispatchEvent(AWTEvent arg0);
+    boolean postEvent(Event arg0);
+    void addComponentListener(@Nullable ComponentListener arg0);
+    void removeComponentListener(@Nullable ComponentListener arg0);
+    ComponentListener[] getComponentListeners();
+    void addFocusListener(@Nullable FocusListener arg0);
+    void removeFocusListener(@Nullable FocusListener arg0);
+    FocusListener[] getFocusListeners();
+    void addHierarchyListener(@Nullable HierarchyListener arg0);
+    void removeHierarchyListener(@Nullable HierarchyListener arg0);
+    HierarchyListener[] getHierarchyListeners();
+    void addHierarchyBoundsListener(@Nullable HierarchyBoundsListener arg0);
+    void removeHierarchyBoundsListener(@Nullable HierarchyBoundsListener arg0);
+    HierarchyBoundsListener[] getHierarchyBoundsListeners();
+    void addKeyListener(@Nullable KeyListener arg0);
+    void removeKeyListener(@Nullable KeyListener arg0);
+    KeyListener[] getKeyListeners();
+    void addMouseListener(@Nullable MouseListener arg0);
+    void removeMouseListener(@Nullable MouseListener arg0);
+    MouseListener[] getMouseListeners();
+    void addMouseMotionListener(@Nullable MouseMotionListener arg0);
+    void removeMouseMotionListener(@Nullable MouseMotionListener arg0);
+    MouseMotionListener[] getMouseMotionListeners();
+    void addMouseWheelListener(@Nullable MouseWheelListener arg0);
+    void removeMouseWheelListener(@Nullable MouseWheelListener arg0);
+    MouseWheelListener[] getMouseWheelListeners();
+    void addInputMethodListener(@Nullable InputMethodListener arg0);
+    void removeInputMethodListener(@Nullable InputMethodListener arg0);
+    InputMethodListener[] getInputMethodListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    @Nullable InputMethodRequests getInputMethodRequests();
+    @Nullable InputContext getInputContext();
+    protected void enableEvents(long arg0);
+    protected void disableEvents(long arg0);
+    protected @Nullable AWTEvent coalesceEvents(AWTEvent arg0, AWTEvent arg1);
+    protected void processEvent(AWTEvent arg0);
+    protected void processComponentEvent(ComponentEvent arg0);
+    protected void processFocusEvent(FocusEvent arg0);
+    protected void processKeyEvent(KeyEvent arg0);
+    protected void processMouseEvent(MouseEvent arg0);
+    protected void processMouseMotionEvent(MouseEvent arg0);
+    protected void processMouseWheelEvent(MouseWheelEvent arg0);
+    protected void processInputMethodEvent(InputMethodEvent arg0);
+    protected void processHierarchyEvent(HierarchyEvent arg0);
+    protected void processHierarchyBoundsEvent(HierarchyEvent arg0);
+    boolean handleEvent(Event arg0);
+    boolean mouseDown(Event arg0, int arg1, int arg2);
+    boolean mouseDrag(Event arg0, int arg1, int arg2);
+    boolean mouseUp(Event arg0, int arg1, int arg2);
+    boolean mouseMove(Event arg0, int arg1, int arg2);
+    boolean mouseEnter(Event arg0, int arg1, int arg2);
+    boolean mouseExit(Event arg0, int arg1, int arg2);
+    boolean keyDown(Event arg0, int arg1);
+    boolean keyUp(Event arg0, int arg1);
+    boolean action(Event arg0, Object arg1);
+    void addNotify();
+    void removeNotify();
+    boolean gotFocus(Event arg0, Object arg1);
+    boolean lostFocus(Event arg0, Object arg1);
+    boolean isFocusTraversable();
+    boolean isFocusable();
+    void setFocusable(boolean arg0);
+    void setFocusTraversalKeys(int arg0, @Nullable Set<? extends AWTKeyStroke> arg1);
+    Set<AWTKeyStroke> getFocusTraversalKeys(int arg0);
+    boolean areFocusTraversalKeysSet(int arg0);
+    void setFocusTraversalKeysEnabled(boolean arg0);
+    boolean getFocusTraversalKeysEnabled();
+    void requestFocus();
+    protected boolean requestFocus(boolean arg0);
+    boolean requestFocusInWindow();
+    protected boolean requestFocusInWindow(boolean arg0);
+    Container getFocusCycleRootAncestor();
+    boolean isFocusCycleRoot(Container arg0);
+    void transferFocus();
+    void nextFocus();
+    void transferFocusBackward();
+    void transferFocusUpCycle();
+    boolean hasFocus();
+    boolean isFocusOwner();
+    void add(PopupMenu arg0);
+    void remove(MenuComponent arg0);
+    protected String paramString();
+    String toString();
+    void list();
+    void list(PrintStream arg0);
+    void list(PrintStream arg0, int arg1);
+    void list(PrintWriter arg0);
+    void list(PrintWriter arg0, int arg1);
+    void addPropertyChangeListener(@Nullable PropertyChangeListener arg0);
+    void removePropertyChangeListener(@Nullable PropertyChangeListener arg0);
+    PropertyChangeListener[] getPropertyChangeListeners();
+    void addPropertyChangeListener(String arg0, PropertyChangeListener arg1);
+    void removePropertyChangeListener(String arg0, PropertyChangeListener arg1);
+    PropertyChangeListener[] getPropertyChangeListeners(@Nullable String arg0);
+    protected void firePropertyChange(String arg0, Object arg1, Object arg2);
+    protected void firePropertyChange(String arg0, boolean arg1, boolean arg2);
+    protected void firePropertyChange(String arg0, int arg1, int arg2);
+    void firePropertyChange(String arg0, byte arg1, byte arg2);
+    void firePropertyChange(String arg0, char arg1, char arg2);
+    void firePropertyChange(String arg0, short arg1, short arg2);
+    void firePropertyChange(String arg0, long arg1, long arg2);
+    void firePropertyChange(String arg0, float arg1, float arg2);
+    void firePropertyChange(String arg0, double arg1, double arg2);
+    void setComponentOrientation(ComponentOrientation arg0);
+    ComponentOrientation getComponentOrientation();
+    void applyComponentOrientation(ComponentOrientation arg0);
+    @Nullable AccessibleContext getAccessibleContext();
+}
+class Component$AccessibleAWTComponent extends AccessibleContext implements Serializable, AccessibleComponent {
+    protected ComponentListener accessibleAWTComponentHandler;
+    protected FocusListener accessibleAWTFocusHandler;
+    protected AccessibleAWTComponent();
+    void addPropertyChangeListener(PropertyChangeListener arg0);
+    void removePropertyChangeListener(PropertyChangeListener arg0);
+    @Nullable String getAccessibleName();
+    @Nullable String getAccessibleDescription();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+    @Nullable Accessible getAccessibleParent();
+    int getAccessibleIndexInParent();
+    int getAccessibleChildrenCount();
+    Accessible getAccessibleChild(int arg0);
+    Locale getLocale();
+    @Nullable AccessibleComponent getAccessibleComponent();
+    @Nullable Color getBackground();
+    void setBackground(Color arg0);
+    @Nullable Color getForeground();
+    void setForeground(Color arg0);
+    @Nullable Cursor getCursor();
+    void setCursor(Cursor arg0);
+    @Nullable Font getFont();
+    void setFont(Font arg0);
+    @Nullable FontMetrics getFontMetrics(Font arg0);
+    boolean isEnabled();
+    void setEnabled(boolean arg0);
+    boolean isVisible();
+    void setVisible(boolean arg0);
+    boolean isShowing();
+    boolean contains(Point arg0);
+    @Nullable Point getLocationOnScreen();
+    @Nullable Point getLocation();
+    void setLocation(Point arg0);
+    @Nullable Rectangle getBounds();
+    void setBounds(Rectangle arg0);
+    @Nullable Dimension getSize();
+    void setSize(Dimension arg0);
+    @Nullable Accessible getAccessibleAt(Point arg0);
+    boolean isFocusTraversable();
+    void requestFocus();
+    void addFocusListener(FocusListener arg0);
+    void removeFocusListener(FocusListener arg0);
+}
+class AccessibleAWTComponent$AccessibleAWTFocusHandler implements FocusListener {
+    protected AccessibleAWTFocusHandler();
+    void focusGained(FocusEvent arg0);
+    void focusLost(FocusEvent arg0);
+}
+class AccessibleAWTComponent$AccessibleAWTComponentHandler implements ComponentListener {
+    protected AccessibleAWTComponentHandler();
+    void componentHidden(ComponentEvent arg0);
+    void componentShown(ComponentEvent arg0);
+    void componentMoved(ComponentEvent arg0);
+    void componentResized(ComponentEvent arg0);
+}
+class Component$BltBufferStrategy extends BufferStrategy {
+    protected BufferCapabilities caps;
+    protected VolatileImage[] backBuffers;
+    protected boolean validatedContents;
+    protected int width;
+    protected int height;
+    protected BltBufferStrategy(int arg0, BufferCapabilities arg1);
+    void dispose();
+    protected void createBackBuffers(int arg0);
+    BufferCapabilities getCapabilities();
+    Graphics getDrawGraphics();
+    void show();
+    protected void revalidate();
+    boolean contentsLost();
+    boolean contentsRestored();
+}
+class Component$FlipBufferStrategy extends BufferStrategy {
+    protected int numBuffers;
+    protected BufferCapabilities caps;
+    protected Image drawBuffer;
+    protected VolatileImage drawVBuffer;
+    protected boolean validatedContents;
+    protected FlipBufferStrategy(int arg0, BufferCapabilities arg1) throws AWTException;
+    protected void createBuffers(int arg0, BufferCapabilities arg1) throws AWTException;
+    protected Image getBackBuffer();
+    protected void flip(FlipContents arg0);
+    protected void destroyBuffers();
+    BufferCapabilities getCapabilities();
+    Graphics getDrawGraphics();
+    protected void revalidate();
+    boolean contentsLost();
+    boolean contentsRestored();
+    void show();
+    void dispose();
+}
+
+class ComponentOrientation implements Serializable {
+    static final ComponentOrientation LEFT_TO_RIGHT;
+    static final ComponentOrientation RIGHT_TO_LEFT;
+    static final ComponentOrientation UNKNOWN;
+    boolean isHorizontal();
+    boolean isLeftToRight();
+    static ComponentOrientation getOrientation(Locale arg0);
+    static ComponentOrientation getOrientation(ResourceBundle arg0);
+}
+
+interface Composite {
+    CompositeContext createContext(ColorModel arg0, ColorModel arg1, RenderingHints arg2);
+}
+
+interface CompositeContext {
+    void dispose();
+    void compose(Raster arg0, Raster arg1, WritableRaster arg2);
+}
+
+class Container extends Component {
+    Container();
+    int getComponentCount();
+    int countComponents();
+    Component getComponent(int arg0);
+    Component[] getComponents();
+    Insets getInsets();
+    Insets insets();
+    Component add(Component arg0);
+    Component add(String arg0, Component arg1);
+    Component add(Component arg0, int arg1);
+    void setComponentZOrder(Component arg0, int arg1);
+    int getComponentZOrder(@Nullable Component arg0);
+    void add(Component arg0, Object arg1);
+    void add(Component arg0, Object arg1, int arg2);
+    protected void addImpl(Component arg0, Object arg1, int arg2);
+    void remove(int arg0);
+    void remove(Component arg0);
+    void removeAll();
+    LayoutManager getLayout();
+    void setLayout(LayoutManager arg0);
+    void doLayout();
+    void layout();
+    boolean isValidateRoot();
+    void invalidate();
+    void validate();
+    protected void validateTree();
+    void setFont(Font arg0);
+    Dimension getPreferredSize();
+    Dimension preferredSize();
+    Dimension getMinimumSize();
+    Dimension minimumSize();
+    Dimension getMaximumSize();
+    float getAlignmentX();
+    float getAlignmentY();
+    void paint(Graphics arg0);
+    void update(Graphics arg0);
+    void print(Graphics arg0);
+    void paintComponents(Graphics arg0);
+    void printComponents(Graphics arg0);
+    void addContainerListener(@Nullable ContainerListener arg0);
+    void removeContainerListener(@Nullable ContainerListener arg0);
+    ContainerListener[] getContainerListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processContainerEvent(ContainerEvent arg0);
+    void deliverEvent(Event arg0);
+    @Nullable Component getComponentAt(int arg0, int arg1);
+    Component locate(int arg0, int arg1);
+    @Nullable Component getComponentAt(Point arg0);
+    @Nullable Point getMousePosition(boolean arg0) throws HeadlessException;
+    @Nullable Component findComponentAt(int arg0, int arg1);
+    @Nullable Component findComponentAt(Point arg0);
+    void addNotify();
+    void removeNotify();
+    boolean isAncestorOf(Component arg0);
+    protected String paramString();
+    void list(PrintStream arg0, int arg1);
+    void list(PrintWriter arg0, int arg1);
+    void setFocusTraversalKeys(int arg0, @Nullable Set<? extends AWTKeyStroke> arg1);
+    @Nullable Set<AWTKeyStroke> getFocusTraversalKeys(int arg0);
+    boolean areFocusTraversalKeysSet(int arg0);
+    boolean isFocusCycleRoot(Container arg0);
+    void setFocusTraversalPolicy(@Nullable FocusTraversalPolicy arg0);
+    @Nullable FocusTraversalPolicy getFocusTraversalPolicy();
+    boolean isFocusTraversalPolicySet();
+    void setFocusCycleRoot(boolean arg0);
+    boolean isFocusCycleRoot();
+    void setFocusTraversalPolicyProvider(boolean arg0);
+    boolean isFocusTraversalPolicyProvider();
+    void transferFocusDownCycle();
+    void applyComponentOrientation(ComponentOrientation arg0);
+    void addPropertyChangeListener(@Nullable PropertyChangeListener arg0);
+    void addPropertyChangeListener(String arg0, @Nullable PropertyChangeListener arg1);
+}
+class Container$AccessibleAWTContainer extends AccessibleAWTComponent {
+    protected ContainerListener accessibleContainerHandler;
+    protected AccessibleAWTContainer();
+    int getAccessibleChildrenCount();
+    Accessible getAccessibleChild(int arg0);
+    @Nullable Accessible getAccessibleAt(Point arg0);
+    void addPropertyChangeListener(PropertyChangeListener arg0);
+    void removePropertyChangeListener(PropertyChangeListener arg0);
+}
+class AccessibleAWTContainer$AccessibleContainerHandler implements ContainerListener {
+    protected AccessibleContainerHandler();
+    void componentAdded(ContainerEvent arg0);
+    void componentRemoved(ContainerEvent arg0);
+}
+
+class ContainerOrderFocusTraversalPolicy extends FocusTraversalPolicy implements Serializable {
+    ContainerOrderFocusTraversalPolicy();
+    @Nullable Component getComponentAfter(Container arg0, Component arg1);
+    @Nullable Component getComponentBefore(Container arg0, Component arg1);
+    @Nullable Component getFirstComponent(Container arg0);
+    @Nullable Component getLastComponent(Container arg0);
+    @Nullable Component getDefaultComponent(Container arg0);
+    void setImplicitDownCycleTraversal(boolean arg0);
+    boolean getImplicitDownCycleTraversal();
+    protected boolean accept(Component arg0);
+}
+
+class Cursor implements Serializable {
+    static final int DEFAULT_CURSOR;
+    static final int CROSSHAIR_CURSOR;
+    static final int TEXT_CURSOR;
+    static final int WAIT_CURSOR;
+    static final int SW_RESIZE_CURSOR;
+    static final int SE_RESIZE_CURSOR;
+    static final int NW_RESIZE_CURSOR;
+    static final int NE_RESIZE_CURSOR;
+    static final int N_RESIZE_CURSOR;
+    static final int S_RESIZE_CURSOR;
+    static final int W_RESIZE_CURSOR;
+    static final int E_RESIZE_CURSOR;
+    static final int HAND_CURSOR;
+    static final int MOVE_CURSOR;
+    protected static Cursor[] predefined;
+    static final int CUSTOM_CURSOR;
+    protected String name;
+    static Cursor getPredefinedCursor(int arg0);
+    static Cursor getSystemCustomCursor(String arg0) throws AWTException,HeadlessException;
+    static Cursor getDefaultCursor();
+    Cursor(int arg0);
+    protected Cursor(String arg0);
+    int getType();
+    String getName();
+    String toString();
+}
+
+class DefaultFocusTraversalPolicy extends ContainerOrderFocusTraversalPolicy {
+    DefaultFocusTraversalPolicy();
+    protected boolean accept(Component arg0);
+}
+
+class DefaultKeyboardFocusManager extends KeyboardFocusManager {
+    DefaultKeyboardFocusManager();
+    boolean dispatchEvent(AWTEvent arg0);
+    boolean dispatchKeyEvent(KeyEvent arg0);
+    boolean postProcessKeyEvent(KeyEvent arg0);
+    void processKeyEvent(Component arg0, KeyEvent arg1);
+    protected void enqueueKeyEvents(long arg0, Component arg1);
+    protected void dequeueKeyEvents(long arg0, Component arg1);
+    protected void discardKeyEvents(Component arg0);
+    void focusPreviousComponent(Component arg0);
+    void focusNextComponent(Component arg0);
+    void upFocusCycle(Component arg0);
+    void downFocusCycle(Container arg0);
+}
+
+class Desktop {
+    static Desktop getDesktop();
+    static boolean isDesktopSupported();
+    boolean isSupported(Action arg0);
+    void open(File arg0) throws IOException;
+    void edit(File arg0) throws IOException;
+    void print(File arg0) throws IOException;
+    void browse(URI arg0) throws IOException;
+    void mail() throws IOException;
+    void mail(URI arg0) throws IOException;
+}
+
+class Dialog extends Window {
+    static final ModalityType DEFAULT_MODALITY_TYPE;
+    Dialog(@Nullable Frame arg0);
+    Dialog(@Nullable Frame arg0, boolean arg1);
+    Dialog(@Nullable Frame arg0, @Nullable String arg1);
+    Dialog(@Nullable Frame arg0, @Nullable String arg1, boolean arg2);
+    Dialog(@Nullable Frame arg0, @Nullable String arg1, boolean arg2, @Nullable GraphicsConfiguration arg3);
+    Dialog(@Nullable Dialog arg0);
+    Dialog(@Nullable Dialog arg0, @Nullable String arg1);
+    Dialog(@Nullable Dialog arg0, @Nullable String arg1, boolean arg2);
+    Dialog(@Nullable Dialog arg0, @Nullable String arg1, boolean arg2, @Nullable GraphicsConfiguration arg3);
+    Dialog(@Nullable Window arg0);
+    Dialog(@Nullable Window arg0, @Nullable String arg1);
+    Dialog(@Nullable Window arg0, @Nullable ModalityType arg1);
+    Dialog(@Nullable Window arg0, @Nullable String arg1, @Nullable ModalityType arg2);
+    Dialog(@Nullable Window arg0, @Nullable String arg1, @Nullable ModalityType arg2, @Nullable GraphicsConfiguration arg3);
+    void addNotify();
+    boolean isModal();
+    void setModal(boolean arg0);
+    ModalityType getModalityType();
+    void setModalityType(@Nullable ModalityType arg0);
+    @Nullable String getTitle();
+    void setTitle(@Nullable String arg0);
+    void setVisible(boolean arg0);
+    void show();
+    void hide();
+    void toBack();
+    boolean isResizable();
+    void setResizable(boolean arg0);
+    void setUndecorated(boolean arg0);
+    boolean isUndecorated();
+    void setOpacity(float arg0);
+    void setShape(@Nullable Shape arg0);
+    void setBackground(@Nullable Color arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Dialog$AccessibleAWTDialog extends AccessibleAWTWindow {
+    protected AccessibleAWTDialog();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+}
+
+class Dimension extends Dimension2D implements Serializable {
+    int width;
+    int height;
+    Dimension();
+    Dimension(Dimension arg0);
+    Dimension(int arg0, int arg1);
+    double getWidth();
+    double getHeight();
+    void setSize(double arg0, double arg1);
+    Dimension getSize();
+    void setSize(Dimension arg0);
+    void setSize(int arg0, int arg1);
+    boolean equals(Object arg0);
+    int hashCode();
+    String toString();
+}
+
+class DisplayMode {
+    static final int BIT_DEPTH_MULTI;
+    static final int REFRESH_RATE_UNKNOWN;
+    DisplayMode(int arg0, int arg1, int arg2, int arg3);
+    int getHeight();
+    int getWidth();
+    int getBitDepth();
+    int getRefreshRate();
+    boolean equals(DisplayMode arg0);
+    boolean equals(@Nullable Object arg0);
+    int hashCode();
+}
+
+class Event implements Serializable {
+    static final int SHIFT_MASK;
+    static final int CTRL_MASK;
+    static final int META_MASK;
+    static final int ALT_MASK;
+    static final int HOME;
+    static final int END;
+    static final int PGUP;
+    static final int PGDN;
+    static final int UP;
+    static final int DOWN;
+    static final int LEFT;
+    static final int RIGHT;
+    static final int F1;
+    static final int F2;
+    static final int F3;
+    static final int F4;
+    static final int F5;
+    static final int F6;
+    static final int F7;
+    static final int F8;
+    static final int F9;
+    static final int F10;
+    static final int F11;
+    static final int F12;
+    static final int PRINT_SCREEN;
+    static final int SCROLL_LOCK;
+    static final int CAPS_LOCK;
+    static final int NUM_LOCK;
+    static final int PAUSE;
+    static final int INSERT;
+    static final int ENTER;
+    static final int BACK_SPACE;
+    static final int TAB;
+    static final int ESCAPE;
+    static final int DELETE;
+    static final int WINDOW_DESTROY;
+    static final int WINDOW_EXPOSE;
+    static final int WINDOW_ICONIFY;
+    static final int WINDOW_DEICONIFY;
+    static final int WINDOW_MOVED;
+    static final int KEY_PRESS;
+    static final int KEY_RELEASE;
+    static final int KEY_ACTION;
+    static final int KEY_ACTION_RELEASE;
+    static final int MOUSE_DOWN;
+    static final int MOUSE_UP;
+    static final int MOUSE_MOVE;
+    static final int MOUSE_ENTER;
+    static final int MOUSE_EXIT;
+    static final int MOUSE_DRAG;
+    static final int SCROLL_LINE_UP;
+    static final int SCROLL_LINE_DOWN;
+    static final int SCROLL_PAGE_UP;
+    static final int SCROLL_PAGE_DOWN;
+    static final int SCROLL_ABSOLUTE;
+    static final int SCROLL_BEGIN;
+    static final int SCROLL_END;
+    static final int LIST_SELECT;
+    static final int LIST_DESELECT;
+    static final int ACTION_EVENT;
+    static final int LOAD_FILE;
+    static final int SAVE_FILE;
+    static final int GOT_FOCUS;
+    static final int LOST_FOCUS;
+    Object target;
+    long when;
+    int id;
+    int x;
+    int y;
+    int key;
+    int modifiers;
+    int clickCount;
+    Object arg;
+    Event evt;
+    Event(Object arg0, long arg1, int arg2, int arg3, int arg4, int arg5, int arg6, Object arg7);
+    Event(Object arg0, long arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+    Event(Object arg0, int arg1, Object arg2);
+    void translate(int arg0, int arg1);
+    boolean shiftDown();
+    boolean controlDown();
+    boolean metaDown();
+    protected String paramString();
+    String toString();
+}
+
+class EventQueue {
+    EventQueue();
+    void postEvent(AWTEvent arg0);
+    AWTEvent getNextEvent() throws InterruptedException;
+    AWTEvent peekEvent();
+    @Nullable AWTEvent peekEvent(int arg0);
+    protected void dispatchEvent(AWTEvent arg0);
+    static long getMostRecentEventTime();
+    static @Nullable AWTEvent getCurrentEvent();
+    void push(EventQueue arg0);
+    protected void pop() throws EmptyStackException;
+    SecondaryLoop createSecondaryLoop();
+    static boolean isDispatchThread();
+    static void invokeLater(Runnable arg0);
+    static void invokeAndWait(Runnable arg0) throws InterruptedException,InvocationTargetException;
+}
+
+class FileDialog extends Dialog {
+    static final int LOAD;
+    static final int SAVE;
+    FileDialog(Frame arg0);
+    FileDialog(Frame arg0, String arg1);
+    FileDialog(Frame arg0, String arg1, int arg2);
+    FileDialog(Dialog arg0);
+    FileDialog(Dialog arg0, @Nullable String arg1);
+    FileDialog(Dialog arg0, @Nullable String arg1, int arg2);
+    void addNotify();
+    int getMode();
+    void setMode(int arg0);
+    @Nullable String getDirectory();
+    void setDirectory(@Nullable String arg0);
+    @Nullable String getFile();
+    File[] getFiles();
+    void setFile(@Nullable String arg0);
+    void setMultipleMode(boolean arg0);
+    boolean isMultipleMode();
+    FilenameFilter getFilenameFilter();
+    void setFilenameFilter(FilenameFilter arg0);
+    protected String paramString();
+}
+
+class FlowLayout implements LayoutManager, Serializable {
+    static final int LEFT;
+    static final int CENTER;
+    static final int RIGHT;
+    static final int LEADING;
+    static final int TRAILING;
+    FlowLayout();
+    FlowLayout(int arg0);
+    FlowLayout(int arg0, int arg1, int arg2);
+    int getAlignment();
+    void setAlignment(int arg0);
+    int getHgap();
+    void setHgap(int arg0);
+    int getVgap();
+    void setVgap(int arg0);
+    void setAlignOnBaseline(boolean arg0);
+    boolean getAlignOnBaseline();
+    void addLayoutComponent(String arg0, Component arg1);
+    void removeLayoutComponent(Component arg0);
+    Dimension preferredLayoutSize(Container arg0);
+    Dimension minimumLayoutSize(Container arg0);
+    void layoutContainer(Container arg0);
+    String toString();
+}
+
+class FocusTraversalPolicy {
+    FocusTraversalPolicy();
+    @Nullable Component getComponentAfter(Container arg0, Component arg1);
+    @Nullable Component getComponentBefore(Container arg0, Component arg1);
+    @Nullable Component getFirstComponent(Container arg0);
+    @Nullable Component getLastComponent(Container arg0);
+    @Nullable Component getDefaultComponent(Container arg0);
+    @Nullable Component getInitialComponent(Window arg0);
+}
+
+class Font implements Serializable {
+    static final String DIALOG;
+    static final String DIALOG_INPUT;
+    static final String SANS_SERIF;
+    static final String SERIF;
+    static final String MONOSPACED;
+    static final int PLAIN;
+    static final int BOLD;
+    static final int ITALIC;
+    static final int ROMAN_BASELINE;
+    static final int CENTER_BASELINE;
+    static final int HANGING_BASELINE;
+    static final int TRUETYPE_FONT;
+    static final int TYPE1_FONT;
+    protected String name;
+    protected int style;
+    protected int size;
+    protected float pointSize;
+    static final int LAYOUT_LEFT_TO_RIGHT;
+    static final int LAYOUT_RIGHT_TO_LEFT;
+    static final int LAYOUT_NO_START_CONTEXT;
+    static final int LAYOUT_NO_LIMIT_CONTEXT;
+    FontPeer getPeer();
+    Font(@Nullable String arg0, int arg1, int arg2);
+    Font(@Nullable Map<? extends Attribute,?> arg0);
+    protected Font(Font arg0);
+    static Font getFont(Map<? extends Attribute,?> arg0);
+    static Font createFont(int arg0, InputStream arg1) throws FontFormatException,IOException;
+    static Font createFont(int arg0, File arg1) throws FontFormatException,IOException;
+    AffineTransform getTransform();
+    String getFamily();
+    String getFamily(Locale arg0);
+    String getPSName();
+    String getName();
+    String getFontName();
+    String getFontName(Locale arg0);
+    int getStyle();
+    int getSize();
+    float getSize2D();
+    boolean isPlain();
+    boolean isBold();
+    boolean isItalic();
+    boolean isTransformed();
+    boolean hasLayoutAttributes();
+    static @Nullable Font getFont(String arg0);
+    static Font decode(@Nullable String arg0);
+    static Font getFont(String arg0, Font arg1);
+    int hashCode();
+    boolean equals(Object arg0);
+    String toString();
+    int getNumGlyphs();
+    int getMissingGlyphCode();
+    byte getBaselineFor(char arg0);
+    Map<TextAttribute,?> getAttributes();
+    Attribute[] getAvailableAttributes();
+    Font deriveFont(int arg0, float arg1);
+    Font deriveFont(int arg0, AffineTransform arg1);
+    Font deriveFont(float arg0);
+    Font deriveFont(AffineTransform arg0);
+    Font deriveFont(int arg0);
+    Font deriveFont(Map<? extends Attribute,?> arg0);
+    boolean canDisplay(char arg0);
+    boolean canDisplay(int arg0);
+    int canDisplayUpTo(String arg0);
+    int canDisplayUpTo(char[] arg0, int arg1, int arg2);
+    int canDisplayUpTo(CharacterIterator arg0, int arg1, int arg2);
+    float getItalicAngle();
+    boolean hasUniformLineMetrics();
+    LineMetrics getLineMetrics(String arg0, FontRenderContext arg1);
+    LineMetrics getLineMetrics(String arg0, int arg1, int arg2, FontRenderContext arg3);
+    LineMetrics getLineMetrics(char[] arg0, int arg1, int arg2, FontRenderContext arg3);
+    LineMetrics getLineMetrics(CharacterIterator arg0, int arg1, int arg2, FontRenderContext arg3);
+    Rectangle2D getStringBounds(String arg0, FontRenderContext arg1);
+    Rectangle2D getStringBounds(String arg0, int arg1, int arg2, FontRenderContext arg3);
+    Rectangle2D getStringBounds(char[] arg0, int arg1, int arg2, FontRenderContext arg3);
+    Rectangle2D getStringBounds(CharacterIterator arg0, int arg1, int arg2, FontRenderContext arg3);
+    Rectangle2D getMaxCharBounds(FontRenderContext arg0);
+    GlyphVector createGlyphVector(FontRenderContext arg0, String arg1);
+    GlyphVector createGlyphVector(FontRenderContext arg0, char[] arg1);
+    GlyphVector createGlyphVector(FontRenderContext arg0, CharacterIterator arg1);
+    GlyphVector createGlyphVector(FontRenderContext arg0, int[] arg1);
+    GlyphVector layoutGlyphVector(FontRenderContext arg0, char[] arg1, int arg2, int arg3, int arg4);
+}
+
+class FontFormatException extends Exception {
+    FontFormatException(String arg0);
+}
+
+class FontMetrics implements Serializable {
+    protected Font font;
+    protected FontMetrics(Font arg0);
+    Font getFont();
+    FontRenderContext getFontRenderContext();
+    int getLeading();
+    int getAscent();
+    int getDescent();
+    int getHeight();
+    int getMaxAscent();
+    int getMaxDescent();
+    int getMaxDecent();
+    int getMaxAdvance();
+    int charWidth(int arg0);
+    int charWidth(char arg0);
+    int stringWidth(String arg0);
+    int charsWidth(char[] arg0, int arg1, int arg2);
+    int bytesWidth(byte[] arg0, int arg1, int arg2);
+    int[] getWidths();
+    boolean hasUniformLineMetrics();
+    LineMetrics getLineMetrics(String arg0, Graphics arg1);
+    LineMetrics getLineMetrics(String arg0, int arg1, int arg2, Graphics arg3);
+    LineMetrics getLineMetrics(char[] arg0, int arg1, int arg2, Graphics arg3);
+    LineMetrics getLineMetrics(CharacterIterator arg0, int arg1, int arg2, Graphics arg3);
+    Rectangle2D getStringBounds(String arg0, Graphics arg1);
+    Rectangle2D getStringBounds(String arg0, int arg1, int arg2, Graphics arg3);
+    Rectangle2D getStringBounds(char[] arg0, int arg1, int arg2, Graphics arg3);
+    Rectangle2D getStringBounds(CharacterIterator arg0, int arg1, int arg2, Graphics arg3);
+    Rectangle2D getMaxCharBounds(Graphics arg0);
+    String toString();
+}
+
+class Frame extends Window implements MenuContainer {
+    static final int DEFAULT_CURSOR;
+    static final int CROSSHAIR_CURSOR;
+    static final int TEXT_CURSOR;
+    static final int WAIT_CURSOR;
+    static final int SW_RESIZE_CURSOR;
+    static final int SE_RESIZE_CURSOR;
+    static final int NW_RESIZE_CURSOR;
+    static final int NE_RESIZE_CURSOR;
+    static final int N_RESIZE_CURSOR;
+    static final int S_RESIZE_CURSOR;
+    static final int W_RESIZE_CURSOR;
+    static final int E_RESIZE_CURSOR;
+    static final int HAND_CURSOR;
+    static final int MOVE_CURSOR;
+    static final int NORMAL;
+    static final int ICONIFIED;
+    static final int MAXIMIZED_HORIZ;
+    static final int MAXIMIZED_VERT;
+    static final int MAXIMIZED_BOTH;
+    Frame() throws HeadlessException;
+    Frame(@Nullable GraphicsConfiguration arg0);
+    Frame(@Nullable String arg0) throws HeadlessException;
+    Frame(@Nullable String arg0, @Nullable GraphicsConfiguration arg1);
+    void addNotify();
+    String getTitle();
+    void setTitle(@Nullable String arg0);
+    @Nullable Image getIconImage();
+    void setIconImage(Image arg0);
+    @Nullable MenuBar getMenuBar();
+    void setMenuBar(@Nullable MenuBar arg0);
+    boolean isResizable();
+    void setResizable(boolean arg0);
+    void setState(int arg0);
+    void setExtendedState(int arg0);
+    int getState();
+    int getExtendedState();
+    void setMaximizedBounds(@Nullable Rectangle arg0);
+    @Nullable Rectangle getMaximizedBounds();
+    void setUndecorated(boolean arg0);
+    boolean isUndecorated();
+    void setOpacity(float arg0);
+    void setShape(@Nullable Shape arg0);
+    void setBackground(@Nullable Color arg0);
+    void remove(@Nullable MenuComponent arg0);
+    void removeNotify();
+    protected String paramString();
+    void setCursor(int arg0);
+    int getCursorType();
+    static Frame[] getFrames();
+    AccessibleContext getAccessibleContext();
+}
+class Frame$AccessibleAWTFrame extends AccessibleAWTWindow {
+    protected AccessibleAWTFrame();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+}
+
+class GradientPaint implements Paint {
+    GradientPaint(float arg0, float arg1, Color arg2, float arg3, float arg4, Color arg5);
+    GradientPaint(Point2D arg0, Color arg1, Point2D arg2, Color arg3);
+    GradientPaint(float arg0, float arg1, Color arg2, float arg3, float arg4, Color arg5, boolean arg6);
+    GradientPaint(Point2D arg0, Color arg1, Point2D arg2, Color arg3, boolean arg4);
+    Point2D getPoint1();
+    Color getColor1();
+    Point2D getPoint2();
+    Color getColor2();
+    boolean isCyclic();
+    PaintContext createContext(@Nullable ColorModel arg0, Rectangle arg1, Rectangle2D arg2, AffineTransform arg3, RenderingHints arg4);
+    int getTransparency();
+}
+
+class Graphics {
+    protected Graphics();
+    Graphics create();
+    Graphics create(int arg0, int arg1, int arg2, int arg3);
+    void translate(int arg0, int arg1);
+    Color getColor();
+    void setColor(Color arg0);
+    void setPaintMode();
+    void setXORMode(Color arg0);
+    Font getFont();
+    void setFont(@Nullable Font arg0);
+    FontMetrics getFontMetrics();
+    FontMetrics getFontMetrics(Font arg0);
+    @Nullable Rectangle getClipBounds();
+    void clipRect(int arg0, int arg1, int arg2, int arg3);
+    void setClip(int arg0, int arg1, int arg2, int arg3);
+    @Nullable Shape getClip();
+    void setClip(@Nullable Shape arg0);
+    void copyArea(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+    void drawLine(int arg0, int arg1, int arg2, int arg3);
+    void fillRect(int arg0, int arg1, int arg2, int arg3);
+    void drawRect(int arg0, int arg1, int arg2, int arg3);
+    void clearRect(int arg0, int arg1, int arg2, int arg3);
+    void drawRoundRect(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+    void fillRoundRect(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+    void draw3DRect(int arg0, int arg1, int arg2, int arg3, boolean arg4);
+    void fill3DRect(int arg0, int arg1, int arg2, int arg3, boolean arg4);
+    void drawOval(int arg0, int arg1, int arg2, int arg3);
+    void fillOval(int arg0, int arg1, int arg2, int arg3);
+    void drawArc(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+    void fillArc(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+    void drawPolyline(int[] arg0, int[] arg1, int arg2);
+    void drawPolygon(int[] arg0, int[] arg1, int arg2);
+    void drawPolygon(Polygon arg0);
+    void fillPolygon(int[] arg0, int[] arg1, int arg2);
+    void fillPolygon(Polygon arg0);
+    void drawString(String arg0, int arg1, int arg2);
+    void drawString(AttributedCharacterIterator arg0, int arg1, int arg2);
+    void drawChars(char[] arg0, int arg1, int arg2, int arg3, int arg4);
+    void drawBytes(byte[] arg0, int arg1, int arg2, int arg3, int arg4);
+    boolean drawImage(@Nullable Image arg0, int arg1, int arg2, ImageObserver arg3);
+    boolean drawImage(@Nullable Image arg0, int arg1, int arg2, int arg3, int arg4, ImageObserver arg5);
+    boolean drawImage(@Nullable Image arg0, int arg1, int arg2, Color arg3, ImageObserver arg4);
+    boolean drawImage(@Nullable Image arg0, int arg1, int arg2, int arg3, int arg4, Color arg5, ImageObserver arg6);
+    boolean drawImage(@Nullable Image arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, ImageObserver arg9);
+    boolean drawImage(@Nullable Image arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, Color arg9, ImageObserver arg10);
+    void dispose();
+    void finalize();
+    String toString();
+    @Nullable Rectangle getClipRect();
+    boolean hitClip(int arg0, int arg1, int arg2, int arg3);
+    Rectangle getClipBounds(Rectangle arg0);
+}
+
+class Graphics2D extends Graphics {
+    protected Graphics2D();
+    void draw3DRect(int arg0, int arg1, int arg2, int arg3, boolean arg4);
+    void fill3DRect(int arg0, int arg1, int arg2, int arg3, boolean arg4);
+    void draw(Shape arg0);
+    boolean drawImage(@Nullable Image arg0, AffineTransform arg1, ImageObserver arg2);
+    void drawImage(@Nullable BufferedImage arg0, BufferedImageOp arg1, int arg2, int arg3);
+    void drawRenderedImage(@Nullable RenderedImage arg0, AffineTransform arg1);
+    void drawRenderableImage(@Nullable RenderableImage arg0, AffineTransform arg1);
+    void drawString(String arg0, int arg1, int arg2);
+    void drawString(String arg0, float arg1, float arg2);
+    void drawString(AttributedCharacterIterator arg0, int arg1, int arg2);
+    void drawString(AttributedCharacterIterator arg0, float arg1, float arg2);
+    void drawGlyphVector(GlyphVector arg0, float arg1, float arg2);
+    void fill(Shape arg0);
+    boolean hit(Rectangle arg0, Shape arg1, boolean arg2);
+    GraphicsConfiguration getDeviceConfiguration();
+    void setComposite(Composite arg0);
+    void setPaint(@Nullable Paint arg0);
+    void setStroke(Stroke arg0);
+    void setRenderingHint(Key arg0, Object arg1);
+    Object getRenderingHint(Key arg0);
+    void setRenderingHints(Map<?,?> arg0);
+    void addRenderingHints(Map<?,?> arg0);
+    RenderingHints getRenderingHints();
+    void translate(int arg0, int arg1);
+    void translate(double arg0, double arg1);
+    void rotate(double arg0);
+    void rotate(double arg0, double arg1, double arg2);
+    void scale(double arg0, double arg1);
+    void shear(double arg0, double arg1);
+    void transform(AffineTransform arg0);
+    void setTransform(AffineTransform arg0);
+    AffineTransform getTransform();
+    Paint getPaint();
+    Composite getComposite();
+    void setBackground(Color arg0);
+    Color getBackground();
+    Stroke getStroke();
+    void clip(@Nullable Shape arg0);
+    FontRenderContext getFontRenderContext();
+}
+
+class GraphicsConfigTemplate implements Serializable {
+    static final int REQUIRED;
+    static final int PREFERRED;
+    static final int UNNECESSARY;
+    GraphicsConfigTemplate();
+    GraphicsConfiguration getBestConfiguration(GraphicsConfiguration[] arg0);
+    boolean isGraphicsConfigSupported(GraphicsConfiguration arg0);
+}
+
+class GraphicsConfiguration {
+    protected GraphicsConfiguration();
+    GraphicsDevice getDevice();
+    BufferedImage createCompatibleImage(int arg0, int arg1);
+    BufferedImage createCompatibleImage(int arg0, int arg1, int arg2);
+    VolatileImage createCompatibleVolatileImage(int arg0, int arg1);
+    VolatileImage createCompatibleVolatileImage(int arg0, int arg1, int arg2);
+    VolatileImage createCompatibleVolatileImage(int arg0, int arg1, @Nullable ImageCapabilities arg2) throws AWTException;
+    VolatileImage createCompatibleVolatileImage(int arg0, int arg1, @Nullable ImageCapabilities arg2, int arg3) throws AWTException;
+    ColorModel getColorModel();
+    @Nullable ColorModel getColorModel(int arg0);
+    AffineTransform getDefaultTransform();
+    AffineTransform getNormalizingTransform();
+    Rectangle getBounds();
+    BufferCapabilities getBufferCapabilities();
+    ImageCapabilities getImageCapabilities();
+    boolean isTranslucencyCapable();
+}
+
+class GraphicsDevice {
+    static final int TYPE_RASTER_SCREEN;
+    static final int TYPE_PRINTER;
+    static final int TYPE_IMAGE_BUFFER;
+    protected GraphicsDevice();
+    int getType();
+    String getIDstring();
+    GraphicsConfiguration[] getConfigurations();
+    GraphicsConfiguration getDefaultConfiguration();
+    GraphicsConfiguration getBestConfiguration(GraphicsConfigTemplate arg0);
+    boolean isFullScreenSupported();
+    void setFullScreenWindow(@Nullable Window arg0);
+    @Nullable Window getFullScreenWindow();
+    boolean isDisplayChangeSupported();
+    void setDisplayMode(DisplayMode arg0);
+    DisplayMode getDisplayMode();
+    DisplayMode[] getDisplayModes();
+    int getAvailableAcceleratedMemory();
+    boolean isWindowTranslucencySupported(WindowTranslucency arg0);
+}
+
+class GraphicsEnvironment {
+    protected GraphicsEnvironment();
+    static GraphicsEnvironment getLocalGraphicsEnvironment();
+    static boolean isHeadless();
+    boolean isHeadlessInstance();
+    GraphicsDevice[] getScreenDevices() throws HeadlessException;
+    GraphicsDevice getDefaultScreenDevice() throws HeadlessException;
+    Graphics2D createGraphics(BufferedImage arg0);
+    Font[] getAllFonts();
+    String[] getAvailableFontFamilyNames();
+    String[] getAvailableFontFamilyNames(@Nullable Locale arg0);
+    boolean registerFont(Font arg0);
+    void preferLocaleFonts();
+    void preferProportionalFonts();
+    Point getCenterPoint() throws HeadlessException;
+    Rectangle getMaximumWindowBounds() throws HeadlessException;
+}
+
+class GridBagConstraints implements Cloneable, Serializable {
+    static final int RELATIVE;
+    static final int REMAINDER;
+    static final int NONE;
+    static final int BOTH;
+    static final int HORIZONTAL;
+    static final int VERTICAL;
+    static final int CENTER;
+    static final int NORTH;
+    static final int NORTHEAST;
+    static final int EAST;
+    static final int SOUTHEAST;
+    static final int SOUTH;
+    static final int SOUTHWEST;
+    static final int WEST;
+    static final int NORTHWEST;
+    static final int PAGE_START;
+    static final int PAGE_END;
+    static final int LINE_START;
+    static final int LINE_END;
+    static final int FIRST_LINE_START;
+    static final int FIRST_LINE_END;
+    static final int LAST_LINE_START;
+    static final int LAST_LINE_END;
+    static final int BASELINE;
+    static final int BASELINE_LEADING;
+    static final int BASELINE_TRAILING;
+    static final int ABOVE_BASELINE;
+    static final int ABOVE_BASELINE_LEADING;
+    static final int ABOVE_BASELINE_TRAILING;
+    static final int BELOW_BASELINE;
+    static final int BELOW_BASELINE_LEADING;
+    static final int BELOW_BASELINE_TRAILING;
+    int gridx;
+    int gridy;
+    int gridwidth;
+    int gridheight;
+    double weightx;
+    double weighty;
+    int anchor;
+    int fill;
+    Insets insets;
+    int ipadx;
+    int ipady;
+    GridBagConstraints();
+    GridBagConstraints(int arg0, int arg1, int arg2, int arg3, double arg4, double arg5, int arg6, int arg7, Insets arg8, int arg9, int arg10);
+    Object clone();
+}
+
+class GridBagLayout implements LayoutManager2, Serializable {
+    protected static final int MAXGRIDSIZE;
+    protected static final int MINSIZE;
+    protected static final int PREFERREDSIZE;
+    protected Hashtable<Component,GridBagConstraints> comptable;
+    protected GridBagConstraints defaultConstraints;
+    protected @Nullable GridBagLayoutInfo layoutInfo;
+    int[] columnWidths;
+    int[] rowHeights;
+    double[] columnWeights;
+    double[] rowWeights;
+    GridBagLayout();
+    void setConstraints(Component arg0, GridBagConstraints arg1);
+    GridBagConstraints getConstraints(Component arg0);
+    protected GridBagConstraints lookupConstraints(Component arg0);
+    Point getLayoutOrigin();
+    int[][] getLayoutDimensions();
+    double[][] getLayoutWeights();
+    Point location(int arg0, int arg1);
+    void addLayoutComponent(String arg0, Component arg1);
+    void addLayoutComponent(Component arg0, Object arg1);
+    void removeLayoutComponent(Component arg0);
+    Dimension preferredLayoutSize(Container arg0);
+    Dimension minimumLayoutSize(Container arg0);
+    Dimension maximumLayoutSize(Container arg0);
+    float getLayoutAlignmentX(Container arg0);
+    float getLayoutAlignmentY(Container arg0);
+    void invalidateLayout(Container arg0);
+    void layoutContainer(Container arg0);
+    String toString();
+    protected GridBagLayoutInfo getLayoutInfo(Container arg0, int arg1);
+    protected GridBagLayoutInfo GetLayoutInfo(Container arg0, int arg1);
+    protected void adjustForGravity(GridBagConstraints arg0, Rectangle arg1);
+    protected void AdjustForGravity(GridBagConstraints arg0, Rectangle arg1);
+    protected Dimension getMinSize(Container arg0, GridBagLayoutInfo arg1);
+    protected Dimension GetMinSize(Container arg0, GridBagLayoutInfo arg1);
+    protected void arrangeGrid(Container arg0);
+    protected void ArrangeGrid(Container arg0);
+}
+
+class GridBagLayoutInfo implements Serializable {
+}
+
+class GridLayout implements LayoutManager, Serializable {
+    GridLayout();
+    GridLayout(int arg0, int arg1);
+    GridLayout(int arg0, int arg1, int arg2, int arg3);
+    int getRows();
+    void setRows(int arg0);
+    int getColumns();
+    void setColumns(int arg0);
+    int getHgap();
+    void setHgap(int arg0);
+    int getVgap();
+    void setVgap(int arg0);
+    void addLayoutComponent(String arg0, Component arg1);
+    void removeLayoutComponent(Component arg0);
+    Dimension preferredLayoutSize(Container arg0);
+    Dimension minimumLayoutSize(Container arg0);
+    void layoutContainer(Container arg0);
+    String toString();
+}
+
+class HeadlessException extends UnsupportedOperationException {
+    HeadlessException();
+    HeadlessException(String arg0);
+    @Nullable String getMessage();
+}
+
+class IllegalComponentStateException extends IllegalStateException {
+    IllegalComponentStateException();
+    IllegalComponentStateException(String arg0);
+}
+
+class Image {
+    protected float accelerationPriority;
+    static final Object UndefinedProperty;
+    static final int SCALE_DEFAULT;
+    static final int SCALE_FAST;
+    static final int SCALE_SMOOTH;
+    static final int SCALE_REPLICATE;
+    static final int SCALE_AREA_AVERAGING;
+    Image();
+    int getWidth(ImageObserver arg0);
+    int getHeight(ImageObserver arg0);
+    ImageProducer getSource();
+    Graphics getGraphics();
+    @Nullable Object getProperty(String arg0, ImageObserver arg1);
+    Image getScaledInstance(int arg0, int arg1, int arg2);
+    void flush();
+    ImageCapabilities getCapabilities(@Nullable GraphicsConfiguration arg0);
+    void setAccelerationPriority(float arg0);
+    float getAccelerationPriority();
+}
+
+class ImageCapabilities implements Cloneable {
+    ImageCapabilities(boolean arg0);
+    boolean isAccelerated();
+    boolean isTrueVolatile();
+    Object clone();
+}
+
+class Insets implements Cloneable, Serializable {
+    int top;
+    int left;
+    int bottom;
+    int right;
+    Insets(int arg0, int arg1, int arg2, int arg3);
+    void set(int arg0, int arg1, int arg2, int arg3);
+    boolean equals(Object arg0);
+    int hashCode();
+    String toString();
+    Object clone();
+}
+
+interface ItemSelectable {
+    Object @Nullable [] getSelectedObjects();
+    void addItemListener(@Nullable ItemListener arg0);
+    void removeItemListener(@Nullable ItemListener arg0);
+}
+
+class JobAttributes implements Cloneable {
+    JobAttributes();
+    JobAttributes(JobAttributes arg0);
+    JobAttributes(int arg0, DefaultSelectionType arg1, DestinationType arg2, DialogType arg3, @Nullable String arg4, int arg5, int arg6, MultipleDocumentHandlingType arg7, int[][] arg8, @Nullable String arg9, SidesType arg10);
+    Object clone();
+    void set(JobAttributes arg0);
+    int getCopies();
+    void setCopies(int arg0);
+    void setCopiesToDefault();
+    DefaultSelectionType getDefaultSelection();
+    void setDefaultSelection(DefaultSelectionType arg0);
+    DestinationType getDestination();
+    void setDestination(DestinationType arg0);
+    DialogType getDialog();
+    void setDialog(DialogType arg0);
+    @Nullable String getFileName();
+    void setFileName(@Nullable String arg0);
+    int getFromPage();
+    void setFromPage(int arg0);
+    int getMaxPage();
+    void setMaxPage(int arg0);
+    int getMinPage();
+    void setMinPage(int arg0);
+    MultipleDocumentHandlingType getMultipleDocumentHandling();
+    void setMultipleDocumentHandling(MultipleDocumentHandlingType arg0);
+    void setMultipleDocumentHandlingToDefault();
+    int[][] getPageRanges();
+    void setPageRanges(int[][] arg0);
+    @Nullable String getPrinter();
+    void setPrinter(@Nullable String arg0);
+    SidesType getSides();
+    void setSides(SidesType arg0);
+    void setSidesToDefault();
+    int getToPage();
+    void setToPage(int arg0);
+    boolean equals(Object arg0);
+    int hashCode();
+    String toString();
+}
+class JobAttributes$SidesType extends AttributeValue {
+    static final SidesType ONE_SIDED;
+    static final SidesType TWO_SIDED_LONG_EDGE;
+    static final SidesType TWO_SIDED_SHORT_EDGE;
+}
+class JobAttributes$MultipleDocumentHandlingType extends AttributeValue {
+    static final MultipleDocumentHandlingType SEPARATE_DOCUMENTS_COLLATED_COPIES;
+    static final MultipleDocumentHandlingType SEPARATE_DOCUMENTS_UNCOLLATED_COPIES;
+}
+class JobAttributes$DialogType extends AttributeValue {
+    static final DialogType COMMON;
+    static final DialogType NATIVE;
+    static final DialogType NONE;
+}
+class JobAttributes$DestinationType extends AttributeValue {
+    static final DestinationType FILE;
+    static final DestinationType PRINTER;
+}
+class JobAttributes$DefaultSelectionType extends AttributeValue {
+    static final DefaultSelectionType ALL;
+    static final DefaultSelectionType RANGE;
+    static final DefaultSelectionType SELECTION;
+}
+
+interface KeyEventDispatcher {
+    boolean dispatchKeyEvent(KeyEvent arg0);
+}
+
+interface KeyEventPostProcessor {
+    boolean postProcessKeyEvent(KeyEvent arg0);
+}
+
+class KeyboardFocusManager implements KeyEventDispatcher, KeyEventPostProcessor {
+    static final int FORWARD_TRAVERSAL_KEYS;
+    static final int BACKWARD_TRAVERSAL_KEYS;
+    static final int UP_CYCLE_TRAVERSAL_KEYS;
+    static final int DOWN_CYCLE_TRAVERSAL_KEYS;
+    static KeyboardFocusManager getCurrentKeyboardFocusManager();
+    static void setCurrentKeyboardFocusManager(@Nullable KeyboardFocusManager arg0) throws SecurityException;
+    KeyboardFocusManager();
+    @Nullable Component getFocusOwner();
+    protected Component getGlobalFocusOwner() throws SecurityException;
+    protected void setGlobalFocusOwner(Component arg0) throws SecurityException;
+    void clearFocusOwner();
+    void clearGlobalFocusOwner() throws SecurityException;
+    @Nullable Component getPermanentFocusOwner();
+    protected Component getGlobalPermanentFocusOwner() throws SecurityException;
+    protected void setGlobalPermanentFocusOwner(Component arg0) throws SecurityException;
+    Window getFocusedWindow();
+    protected @Nullable Window getGlobalFocusedWindow() throws SecurityException;
+    protected void setGlobalFocusedWindow(Window arg0) throws SecurityException;
+    @Nullable Window getActiveWindow();
+    protected Window getGlobalActiveWindow() throws SecurityException;
+    protected void setGlobalActiveWindow(Window arg0) throws SecurityException;
+    FocusTraversalPolicy getDefaultFocusTraversalPolicy();
+    void setDefaultFocusTraversalPolicy(FocusTraversalPolicy arg0);
+    void setDefaultFocusTraversalKeys(int arg0, Set<? extends AWTKeyStroke> arg1);
+    Set<AWTKeyStroke> getDefaultFocusTraversalKeys(int arg0);
+    @Nullable Container getCurrentFocusCycleRoot();
+    protected @Nullable Container getGlobalCurrentFocusCycleRoot() throws SecurityException;
+    void setGlobalCurrentFocusCycleRoot(Container arg0) throws SecurityException;
+    void addPropertyChangeListener(@Nullable PropertyChangeListener arg0);
+    void removePropertyChangeListener(@Nullable PropertyChangeListener arg0);
+    PropertyChangeListener[] getPropertyChangeListeners();
+    void addPropertyChangeListener(String arg0, @Nullable PropertyChangeListener arg1);
+    void removePropertyChangeListener(String arg0, @Nullable PropertyChangeListener arg1);
+    PropertyChangeListener[] getPropertyChangeListeners(String arg0);
+    protected void firePropertyChange(String arg0, Object arg1, Object arg2);
+    void addVetoableChangeListener(@Nullable VetoableChangeListener arg0);
+    void removeVetoableChangeListener(@Nullable VetoableChangeListener arg0);
+    VetoableChangeListener[] getVetoableChangeListeners();
+    void addVetoableChangeListener(String arg0, @Nullable VetoableChangeListener arg1);
+    void removeVetoableChangeListener(String arg0, @Nullable VetoableChangeListener arg1);
+    VetoableChangeListener[] getVetoableChangeListeners(String arg0);
+    protected void fireVetoableChange(String arg0, Object arg1, Object arg2) throws PropertyVetoException;
+    void addKeyEventDispatcher(@Nullable KeyEventDispatcher arg0);
+    void removeKeyEventDispatcher(@Nullable KeyEventDispatcher arg0);
+    protected @Nullable List<KeyEventDispatcher> getKeyEventDispatchers();
+    void addKeyEventPostProcessor(@Nullable KeyEventPostProcessor arg0);
+    void removeKeyEventPostProcessor(@Nullable KeyEventPostProcessor arg0);
+    protected @Nullable List<KeyEventPostProcessor> getKeyEventPostProcessors();
+    boolean dispatchEvent(AWTEvent arg0);
+    void redispatchEvent(Component arg0, AWTEvent arg1);
+    boolean dispatchKeyEvent(KeyEvent arg0);
+    boolean postProcessKeyEvent(KeyEvent arg0);
+    void processKeyEvent(Component arg0, KeyEvent arg1);
+    protected void enqueueKeyEvents(long arg0, Component arg1);
+    protected void dequeueKeyEvents(long arg0, Component arg1);
+    protected void discardKeyEvents(Component arg0);
+    void focusNextComponent(Component arg0);
+    void focusPreviousComponent(Component arg0);
+    void upFocusCycle(Component arg0);
+    void downFocusCycle(Container arg0);
+    void focusNextComponent();
+    void focusPreviousComponent();
+    void upFocusCycle();
+    void downFocusCycle();
+}
+
+class Label extends Component implements Accessible {
+    static final int LEFT;
+    static final int CENTER;
+    static final int RIGHT;
+    Label() throws HeadlessException;
+    Label(@Nullable String arg0) throws HeadlessException;
+    Label(@Nullable String arg0, int arg1) throws HeadlessException;
+    void addNotify();
+    int getAlignment();
+    void setAlignment(int arg0);
+    @Nullable String getText();
+    void setText(@Nullable String arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Label$AccessibleAWTLabel extends AccessibleAWTComponent {
+    AccessibleAWTLabel();
+    String getAccessibleName();
+    AccessibleRole getAccessibleRole();
+}
+
+interface LayoutManager {
+    void addLayoutComponent(String arg0, Component arg1);
+    void removeLayoutComponent(Component arg0);
+    Dimension preferredLayoutSize(Container arg0);
+    Dimension minimumLayoutSize(Container arg0);
+    void layoutContainer(Container arg0);
+}
+
+interface LayoutManager2 extends LayoutManager {
+    void addLayoutComponent(Component arg0, Object arg1);
+    Dimension maximumLayoutSize(Container arg0);
+    float getLayoutAlignmentX(Container arg0);
+    float getLayoutAlignmentY(Container arg0);
+    void invalidateLayout(Container arg0);
+}
+
+class LinearGradientPaint extends MultipleGradientPaint {
+    LinearGradientPaint(float arg0, float arg1, float arg2, float arg3, float[] arg4, Color[] arg5);
+    LinearGradientPaint(float arg0, float arg1, float arg2, float arg3, float[] arg4, Color[] arg5, CycleMethod arg6);
+    LinearGradientPaint(Point2D arg0, Point2D arg1, float[] arg2, Color[] arg3);
+    LinearGradientPaint(Point2D arg0, Point2D arg1, float[] arg2, Color[] arg3, CycleMethod arg4);
+    LinearGradientPaint(Point2D arg0, Point2D arg1, float[] arg2, Color[] arg3, CycleMethod arg4, ColorSpaceType arg5, AffineTransform arg6);
+    PaintContext createContext(@Nullable ColorModel arg0, Rectangle arg1, Rectangle2D arg2, AffineTransform arg3, RenderingHints arg4);
+    Point2D getStartPoint();
+    Point2D getEndPoint();
+}
+
+class List extends Component implements ItemSelectable, Accessible {
+    List() throws HeadlessException;
+    List(int arg0) throws HeadlessException;
+    List(int arg0, boolean arg1) throws HeadlessException;
+    void addNotify();
+    void removeNotify();
+    int getItemCount();
+    int countItems();
+    String getItem(int arg0);
+    String[] getItems();
+    void add(String arg0);
+    void addItem(String arg0);
+    void add(@Nullable String arg0, int arg1);
+    void addItem(String arg0, int arg1);
+    void replaceItem(String arg0, int arg1);
+    void removeAll();
+    void clear();
+    void remove(String arg0);
+    void remove(int arg0);
+    void delItem(int arg0);
+    int getSelectedIndex();
+    int[] getSelectedIndexes();
+    @Nullable String getSelectedItem();
+    String[] getSelectedItems();
+    Object[] getSelectedObjects();
+    void select(int arg0);
+    void deselect(int arg0);
+    boolean isIndexSelected(int arg0);
+    boolean isSelected(int arg0);
+    int getRows();
+    boolean isMultipleMode();
+    boolean allowsMultipleSelections();
+    void setMultipleMode(boolean arg0);
+    void setMultipleSelections(boolean arg0);
+    int getVisibleIndex();
+    void makeVisible(int arg0);
+    Dimension getPreferredSize(int arg0);
+    Dimension preferredSize(int arg0);
+    Dimension getPreferredSize();
+    Dimension preferredSize();
+    Dimension getMinimumSize(int arg0);
+    Dimension minimumSize(int arg0);
+    Dimension getMinimumSize();
+    Dimension minimumSize();
+    void addItemListener(@Nullable ItemListener arg0);
+    void removeItemListener(@Nullable ItemListener arg0);
+    ItemListener[] getItemListeners();
+    void addActionListener(@Nullable ActionListener arg0);
+    void removeActionListener(@Nullable ActionListener arg0);
+    ActionListener[] getActionListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processItemEvent(ItemEvent arg0);
+    protected void processActionEvent(ActionEvent arg0);
+    protected String paramString();
+    void delItems(int arg0, int arg1);
+    AccessibleContext getAccessibleContext();
+}
+class List$AccessibleAWTList extends AccessibleAWTComponent implements AccessibleSelection, ItemListener, ActionListener {
+    AccessibleAWTList();
+    void actionPerformed(ActionEvent arg0);
+    void itemStateChanged(ItemEvent arg0);
+    AccessibleStateSet getAccessibleStateSet();
+    AccessibleRole getAccessibleRole();
+    Accessible getAccessibleAt(Point arg0);
+    int getAccessibleChildrenCount();
+    Accessible getAccessibleChild(int arg0);
+    AccessibleSelection getAccessibleSelection();
+    int getAccessibleSelectionCount();
+    Accessible getAccessibleSelection(int arg0);
+    boolean isAccessibleChildSelected(int arg0);
+    void addAccessibleSelection(int arg0);
+    void removeAccessibleSelection(int arg0);
+    void clearAccessibleSelection();
+    void selectAllAccessibleSelection();
+}
+class AccessibleAWTList$AccessibleAWTListChild extends AccessibleAWTComponent implements Accessible {
+    AccessibleAWTListChild(List arg0, int arg1);
+    AccessibleContext getAccessibleContext();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+    Locale getLocale();
+    int getAccessibleIndexInParent();
+    int getAccessibleChildrenCount();
+    Accessible getAccessibleChild(int arg0);
+    Color getBackground();
+    void setBackground(Color arg0);
+    Color getForeground();
+    void setForeground(Color arg0);
+    Cursor getCursor();
+    void setCursor(Cursor arg0);
+    Font getFont();
+    void setFont(Font arg0);
+    FontMetrics getFontMetrics(Font arg0);
+    boolean isEnabled();
+    void setEnabled(boolean arg0);
+    boolean isVisible();
+    void setVisible(boolean arg0);
+    boolean isShowing();
+    boolean contains(Point arg0);
+    Point getLocationOnScreen();
+    Point getLocation();
+    void setLocation(Point arg0);
+    Rectangle getBounds();
+    void setBounds(Rectangle arg0);
+    Dimension getSize();
+    void setSize(Dimension arg0);
+    Accessible getAccessibleAt(Point arg0);
+    boolean isFocusTraversable();
+    void requestFocus();
+    void addFocusListener(FocusListener arg0);
+    void removeFocusListener(FocusListener arg0);
+}
+
+class MediaTracker implements Serializable {
+    static final int LOADING;
+    static final int ABORTED;
+    static final int ERRORED;
+    static final int COMPLETE;
+    MediaTracker(Component arg0);
+    void addImage(Image arg0, int arg1);
+    void addImage(Image arg0, int arg1, int arg2, int arg3);
+    boolean checkAll();
+    boolean checkAll(boolean arg0);
+    boolean isErrorAny();
+    Object @Nullable [] getErrorsAny();
+    void waitForAll() throws InterruptedException;
+    boolean waitForAll(long arg0) throws InterruptedException;
+    int statusAll(boolean arg0);
+    boolean checkID(int arg0);
+    boolean checkID(int arg0, boolean arg1);
+    boolean isErrorID(int arg0);
+    Object @Nullable [] getErrorsID(int arg0);
+    void waitForID(int arg0) throws InterruptedException;
+    boolean waitForID(int arg0, long arg1) throws InterruptedException;
+    int statusID(int arg0, boolean arg1);
+    void removeImage(Image arg0);
+    void removeImage(Image arg0, int arg1);
+    void removeImage(Image arg0, int arg1, int arg2, int arg3);
+}
+
+class Menu extends MenuItem implements MenuContainer, Accessible {
+    Menu() throws HeadlessException;
+    Menu(String arg0) throws HeadlessException;
+    Menu(String arg0, boolean arg1) throws HeadlessException;
+    void addNotify();
+    void removeNotify();
+    boolean isTearOff();
+    int getItemCount();
+    int countItems();
+    MenuItem getItem(int arg0);
+    MenuItem add(MenuItem arg0);
+    void add(String arg0);
+    void insert(MenuItem arg0, int arg1);
+    void insert(String arg0, int arg1);
+    void addSeparator();
+    void insertSeparator(int arg0);
+    void remove(int arg0);
+    void remove(@Nullable MenuComponent arg0);
+    void removeAll();
+    String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Menu$AccessibleAWTMenu extends AccessibleAWTMenuItem {
+    protected AccessibleAWTMenu();
+    AccessibleRole getAccessibleRole();
+}
+
+class MenuBar extends MenuComponent implements MenuContainer, Accessible {
+    MenuBar() throws HeadlessException;
+    void addNotify();
+    void removeNotify();
+    Menu getHelpMenu();
+    void setHelpMenu(Menu arg0);
+    Menu add(Menu arg0);
+    void remove(int arg0);
+    void remove(MenuComponent arg0);
+    int getMenuCount();
+    int countMenus();
+    Menu getMenu(int arg0);
+    Enumeration<MenuShortcut> shortcuts();
+    MenuItem getShortcutMenuItem(@Nullable MenuShortcut arg0);
+    void deleteShortcut(MenuShortcut arg0);
+    AccessibleContext getAccessibleContext();
+}
+class MenuBar$AccessibleAWTMenuBar extends AccessibleAWTMenuComponent {
+    protected AccessibleAWTMenuBar();
+    AccessibleRole getAccessibleRole();
+}
+
+class MenuComponent implements Serializable {
+    MenuComponent() throws HeadlessException;
+    String getName();
+    void setName(String arg0);
+    @Nullable MenuContainer getParent();
+    MenuComponentPeer getPeer();
+    @Nullable Font getFont();
+    void setFont(Font arg0);
+    void removeNotify();
+    boolean postEvent(Event arg0);
+    void dispatchEvent(AWTEvent arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected String paramString();
+    String toString();
+    protected Object getTreeLock();
+    @Nullable AccessibleContext getAccessibleContext();
+}
+class MenuComponent$AccessibleAWTMenuComponent extends AccessibleContext implements Serializable, AccessibleComponent, AccessibleSelection {
+    protected AccessibleAWTMenuComponent();
+    @Nullable AccessibleSelection getAccessibleSelection();
+    @Nullable String getAccessibleName();
+    @Nullable String getAccessibleDescription();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+    @Nullable Accessible getAccessibleParent();
+    int getAccessibleIndexInParent();
+    int getAccessibleChildrenCount();
+    Accessible getAccessibleChild(int arg0);
+    Locale getLocale();
+    @Nullable AccessibleComponent getAccessibleComponent();
+    @Nullable Color getBackground();
+    void setBackground(Color arg0);
+    @Nullable Color getForeground();
+    void setForeground(Color arg0);
+    @Nullable Cursor getCursor();
+    void setCursor(Cursor arg0);
+    @Nullable Font getFont();
+    void setFont(Font arg0);
+    @Nullable FontMetrics getFontMetrics(Font arg0);
+    boolean isEnabled();
+    void setEnabled(boolean arg0);
+    boolean isVisible();
+    void setVisible(boolean arg0);
+    boolean isShowing();
+    boolean contains(Point arg0);
+    @Nullable Point getLocationOnScreen();
+    @Nullable Point getLocation();
+    void setLocation(Point arg0);
+    @Nullable Rectangle getBounds();
+    void setBounds(Rectangle arg0);
+    @Nullable Dimension getSize();
+    void setSize(Dimension arg0);
+    @Nullable Accessible getAccessibleAt(Point arg0);
+    boolean isFocusTraversable();
+    void requestFocus();
+    void addFocusListener(FocusListener arg0);
+    void removeFocusListener(FocusListener arg0);
+    int getAccessibleSelectionCount();
+    @Nullable Accessible getAccessibleSelection(int arg0);
+    boolean isAccessibleChildSelected(int arg0);
+    void addAccessibleSelection(int arg0);
+    void removeAccessibleSelection(int arg0);
+    void clearAccessibleSelection();
+    void selectAllAccessibleSelection();
+}
+
+interface MenuContainer {
+    Font getFont();
+    void remove(MenuComponent arg0);
+    boolean postEvent(Event arg0);
+}
+
+class MenuItem extends MenuComponent implements Accessible {
+    MenuItem() throws HeadlessException;
+    MenuItem(String arg0) throws HeadlessException;
+    MenuItem(String arg0, MenuShortcut arg1) throws HeadlessException;
+    void addNotify();
+    @Nullable String getLabel();
+    void setLabel(@Nullable String arg0);
+    boolean isEnabled();
+    void setEnabled(boolean arg0);
+    void enable();
+    void enable(boolean arg0);
+    void disable();
+    @Nullable MenuShortcut getShortcut();
+    void setShortcut(MenuShortcut arg0);
+    void deleteShortcut();
+    protected void enableEvents(long arg0);
+    protected void disableEvents(long arg0);
+    void setActionCommand(String arg0);
+    String getActionCommand();
+    void addActionListener(@Nullable ActionListener arg0);
+    void removeActionListener(@Nullable ActionListener arg0);
+    ActionListener[] getActionListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processActionEvent(ActionEvent arg0);
+    String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class MenuItem$AccessibleAWTMenuItem extends AccessibleAWTMenuComponent implements AccessibleAction, AccessibleValue {
+    protected AccessibleAWTMenuItem();
+    @Nullable String getAccessibleName();
+    AccessibleRole getAccessibleRole();
+    AccessibleAction getAccessibleAction();
+    AccessibleValue getAccessibleValue();
+    int getAccessibleActionCount();
+    String getAccessibleActionDescription(int arg0);
+    boolean doAccessibleAction(int arg0);
+    Number getCurrentAccessibleValue();
+    boolean setCurrentAccessibleValue(Number arg0);
+    Number getMinimumAccessibleValue();
+    Number getMaximumAccessibleValue();
+}
+
+class MenuShortcut implements Serializable {
+    MenuShortcut(int arg0);
+    MenuShortcut(int arg0, boolean arg1);
+    int getKey();
+    boolean usesShiftModifier();
+    boolean equals(MenuShortcut arg0);
+    boolean equals(Object arg0);
+    int hashCode();
+    String toString();
+    protected String paramString();
+}
+
+class MouseInfo {
+    static @Nullable PointerInfo getPointerInfo() throws HeadlessException;
+    static int getNumberOfButtons() throws HeadlessException;
+}
+
+class MultipleGradientPaint implements Paint {
+    float[] getFractions();
+    Color[] getColors();
+    CycleMethod getCycleMethod();
+    ColorSpaceType getColorSpace();
+    AffineTransform getTransform();
+    int getTransparency();
+}
+
+class PageAttributes implements Cloneable {
+    PageAttributes();
+    PageAttributes(PageAttributes arg0);
+    PageAttributes(ColorType arg0, MediaType arg1, OrientationRequestedType arg2, OriginType arg3, PrintQualityType arg4, int[] arg5);
+    Object clone();
+    void set(PageAttributes arg0);
+    ColorType getColor();
+    void setColor(ColorType arg0);
+    MediaType getMedia();
+    void setMedia(MediaType arg0);
+    void setMediaToDefault();
+    OrientationRequestedType getOrientationRequested();
+    void setOrientationRequested(OrientationRequestedType arg0);
+    void setOrientationRequested(int arg0);
+    void setOrientationRequestedToDefault();
+    OriginType getOrigin();
+    void setOrigin(OriginType arg0);
+    PrintQualityType getPrintQuality();
+    void setPrintQuality(PrintQualityType arg0);
+    void setPrintQuality(int arg0);
+    void setPrintQualityToDefault();
+    int[] getPrinterResolution();
+    void setPrinterResolution(int[] arg0);
+    void setPrinterResolution(int arg0);
+    void setPrinterResolutionToDefault();
+    boolean equals(Object arg0);
+    int hashCode();
+    String toString();
+}
+class PageAttributes$PrintQualityType extends AttributeValue {
+    static final PrintQualityType HIGH;
+    static final PrintQualityType NORMAL;
+    static final PrintQualityType DRAFT;
+}
+class PageAttributes$OriginType extends AttributeValue {
+    static final OriginType PHYSICAL;
+    static final OriginType PRINTABLE;
+}
+class PageAttributes$OrientationRequestedType extends AttributeValue {
+    static final OrientationRequestedType PORTRAIT;
+    static final OrientationRequestedType LANDSCAPE;
+}
+class PageAttributes$MediaType extends AttributeValue {
+    static final MediaType ISO_4A0;
+    static final MediaType ISO_2A0;
+    static final MediaType ISO_A0;
+    static final MediaType ISO_A1;
+    static final MediaType ISO_A2;
+    static final MediaType ISO_A3;
+    static final MediaType ISO_A4;
+    static final MediaType ISO_A5;
+    static final MediaType ISO_A6;
+    static final MediaType ISO_A7;
+    static final MediaType ISO_A8;
+    static final MediaType ISO_A9;
+    static final MediaType ISO_A10;
+    static final MediaType ISO_B0;
+    static final MediaType ISO_B1;
+    static final MediaType ISO_B2;
+    static final MediaType ISO_B3;
+    static final MediaType ISO_B4;
+    static final MediaType ISO_B5;
+    static final MediaType ISO_B6;
+    static final MediaType ISO_B7;
+    static final MediaType ISO_B8;
+    static final MediaType ISO_B9;
+    static final MediaType ISO_B10;
+    static final MediaType JIS_B0;
+    static final MediaType JIS_B1;
+    static final MediaType JIS_B2;
+    static final MediaType JIS_B3;
+    static final MediaType JIS_B4;
+    static final MediaType JIS_B5;
+    static final MediaType JIS_B6;
+    static final MediaType JIS_B7;
+    static final MediaType JIS_B8;
+    static final MediaType JIS_B9;
+    static final MediaType JIS_B10;
+    static final MediaType ISO_C0;
+    static final MediaType ISO_C1;
+    static final MediaType ISO_C2;
+    static final MediaType ISO_C3;
+    static final MediaType ISO_C4;
+    static final MediaType ISO_C5;
+    static final MediaType ISO_C6;
+    static final MediaType ISO_C7;
+    static final MediaType ISO_C8;
+    static final MediaType ISO_C9;
+    static final MediaType ISO_C10;
+    static final MediaType ISO_DESIGNATED_LONG;
+    static final MediaType EXECUTIVE;
+    static final MediaType FOLIO;
+    static final MediaType INVOICE;
+    static final MediaType LEDGER;
+    static final MediaType NA_LETTER;
+    static final MediaType NA_LEGAL;
+    static final MediaType QUARTO;
+    static final MediaType A;
+    static final MediaType B;
+    static final MediaType C;
+    static final MediaType D;
+    static final MediaType E;
+    static final MediaType NA_10X15_ENVELOPE;
+    static final MediaType NA_10X14_ENVELOPE;
+    static final MediaType NA_10X13_ENVELOPE;
+    static final MediaType NA_9X12_ENVELOPE;
+    static final MediaType NA_9X11_ENVELOPE;
+    static final MediaType NA_7X9_ENVELOPE;
+    static final MediaType NA_6X9_ENVELOPE;
+    static final MediaType NA_NUMBER_9_ENVELOPE;
+    static final MediaType NA_NUMBER_10_ENVELOPE;
+    static final MediaType NA_NUMBER_11_ENVELOPE;
+    static final MediaType NA_NUMBER_12_ENVELOPE;
+    static final MediaType NA_NUMBER_14_ENVELOPE;
+    static final MediaType INVITE_ENVELOPE;
+    static final MediaType ITALY_ENVELOPE;
+    static final MediaType MONARCH_ENVELOPE;
+    static final MediaType PERSONAL_ENVELOPE;
+    static final MediaType A0;
+    static final MediaType A1;
+    static final MediaType A2;
+    static final MediaType A3;
+    static final MediaType A4;
+    static final MediaType A5;
+    static final MediaType A6;
+    static final MediaType A7;
+    static final MediaType A8;
+    static final MediaType A9;
+    static final MediaType A10;
+    static final MediaType B0;
+    static final MediaType B1;
+    static final MediaType B2;
+    static final MediaType B3;
+    static final MediaType B4;
+    static final MediaType ISO_B4_ENVELOPE;
+    static final MediaType B5;
+    static final MediaType ISO_B5_ENVELOPE;
+    static final MediaType B6;
+    static final MediaType B7;
+    static final MediaType B8;
+    static final MediaType B9;
+    static final MediaType B10;
+    static final MediaType C0;
+    static final MediaType ISO_C0_ENVELOPE;
+    static final MediaType C1;
+    static final MediaType ISO_C1_ENVELOPE;
+    static final MediaType C2;
+    static final MediaType ISO_C2_ENVELOPE;
+    static final MediaType C3;
+    static final MediaType ISO_C3_ENVELOPE;
+    static final MediaType C4;
+    static final MediaType ISO_C4_ENVELOPE;
+    static final MediaType C5;
+    static final MediaType ISO_C5_ENVELOPE;
+    static final MediaType C6;
+    static final MediaType ISO_C6_ENVELOPE;
+    static final MediaType C7;
+    static final MediaType ISO_C7_ENVELOPE;
+    static final MediaType C8;
+    static final MediaType ISO_C8_ENVELOPE;
+    static final MediaType C9;
+    static final MediaType ISO_C9_ENVELOPE;
+    static final MediaType C10;
+    static final MediaType ISO_C10_ENVELOPE;
+    static final MediaType ISO_DESIGNATED_LONG_ENVELOPE;
+    static final MediaType STATEMENT;
+    static final MediaType TABLOID;
+    static final MediaType LETTER;
+    static final MediaType NOTE;
+    static final MediaType LEGAL;
+    static final MediaType ENV_10X15;
+    static final MediaType ENV_10X14;
+    static final MediaType ENV_10X13;
+    static final MediaType ENV_9X12;
+    static final MediaType ENV_9X11;
+    static final MediaType ENV_7X9;
+    static final MediaType ENV_6X9;
+    static final MediaType ENV_9;
+    static final MediaType ENV_10;
+    static final MediaType ENV_11;
+    static final MediaType ENV_12;
+    static final MediaType ENV_14;
+    static final MediaType ENV_INVITE;
+    static final MediaType ENV_ITALY;
+    static final MediaType ENV_MONARCH;
+    static final MediaType ENV_PERSONAL;
+    static final MediaType INVITE;
+    static final MediaType ITALY;
+    static final MediaType MONARCH;
+    static final MediaType PERSONAL;
+}
+class PageAttributes$ColorType extends AttributeValue {
+    static final ColorType COLOR;
+    static final ColorType MONOCHROME;
+}
+
+interface Paint extends Transparency {
+    PaintContext createContext(@Nullable ColorModel arg0, Rectangle arg1, Rectangle2D arg2, AffineTransform arg3, RenderingHints arg4);
+}
+
+interface PaintContext {
+    void dispose();
+    ColorModel getColorModel();
+    Raster getRaster(int arg0, int arg1, int arg2, int arg3);
+}
+
+class Panel extends Container implements Accessible {
+    Panel();
+    Panel(LayoutManager arg0);
+    void addNotify();
+    AccessibleContext getAccessibleContext();
+}
+class Panel$AccessibleAWTPanel extends AccessibleAWTContainer {
+    protected AccessibleAWTPanel();
+    AccessibleRole getAccessibleRole();
+}
+
+class Point extends Point2D implements Serializable {
+    int x;
+    int y;
+    Point();
+    Point(Point arg0);
+    Point(int arg0, int arg1);
+    double getX();
+    double getY();
+    Point getLocation();
+    void setLocation(Point arg0);
+    void setLocation(int arg0, int arg1);
+    void setLocation(double arg0, double arg1);
+    void move(int arg0, int arg1);
+    void translate(int arg0, int arg1);
+    boolean equals(Object arg0);
+    String toString();
+}
+
+class PointerInfo {
+    GraphicsDevice getDevice();
+    Point getLocation();
+}
+
+class Polygon implements Shape, Serializable {
+    @Nullable int npoints;
+    int[] xpoints;
+    int[] ypoints;
+    protected @Nullable Rectangle bounds;
+    Polygon();
+    Polygon(int[] arg0, int[] arg1, int arg2);
+    void reset();
+    void invalidate();
+    void translate(int arg0, int arg1);
+    void addPoint(int arg0, int arg1);
+    Rectangle getBounds();
+    Rectangle getBoundingBox();
+    boolean contains(Point arg0);
+    boolean contains(int arg0, int arg1);
+    boolean inside(int arg0, int arg1);
+    Rectangle2D getBounds2D();
+    boolean contains(double arg0, double arg1);
+    boolean contains(Point2D arg0);
+    boolean intersects(double arg0, double arg1, double arg2, double arg3);
+    boolean intersects(Rectangle2D arg0);
+    boolean contains(double arg0, double arg1, double arg2, double arg3);
+    boolean contains(Rectangle2D arg0);
+    PathIterator getPathIterator(@Nullable AffineTransform arg0);
+    PathIterator getPathIterator(@Nullable AffineTransform arg0, double arg1);
+}
+
+class PopupMenu extends Menu {
+    PopupMenu() throws HeadlessException;
+    PopupMenu(String arg0) throws HeadlessException;
+    @Nullable MenuContainer getParent();
+    void addNotify();
+    void show(Component arg0, int arg1, int arg2);
+    AccessibleContext getAccessibleContext();
+}
+class PopupMenu$AccessibleAWTPopupMenu extends AccessibleAWTMenu {
+    protected AccessibleAWTPopupMenu();
+    AccessibleRole getAccessibleRole();
+}
+
+interface PrintGraphics {
+    PrintJob getPrintJob();
+}
+
+class PrintJob {
+    PrintJob();
+    Graphics getGraphics();
+    Dimension getPageDimension();
+    int getPageResolution();
+    boolean lastPageFirst();
+    void end();
+    void finalize();
+}
+
+class RadialGradientPaint extends MultipleGradientPaint {
+    RadialGradientPaint(float arg0, float arg1, float arg2, float[] arg3, Color[] arg4);
+    RadialGradientPaint(Point2D arg0, float arg1, float[] arg2, Color[] arg3);
+    RadialGradientPaint(float arg0, float arg1, float arg2, float[] arg3, Color[] arg4, CycleMethod arg5);
+    RadialGradientPaint(Point2D arg0, float arg1, float[] arg2, Color[] arg3, CycleMethod arg4);
+    RadialGradientPaint(float arg0, float arg1, float arg2, float arg3, float arg4, float[] arg5, Color[] arg6, CycleMethod arg7);
+    RadialGradientPaint(Point2D arg0, float arg1, Point2D arg2, float[] arg3, Color[] arg4, CycleMethod arg5);
+    RadialGradientPaint(Point2D arg0, float arg1, Point2D arg2, float[] arg3, Color[] arg4, CycleMethod arg5, ColorSpaceType arg6, AffineTransform arg7);
+    RadialGradientPaint(Rectangle2D arg0, float[] arg1, Color[] arg2, CycleMethod arg3);
+    PaintContext createContext(@Nullable ColorModel arg0, Rectangle arg1, Rectangle2D arg2, AffineTransform arg3, RenderingHints arg4);
+    Point2D getCenterPoint();
+    Point2D getFocusPoint();
+    float getRadius();
+}
+
+class Rectangle extends Rectangle2D implements Shape, Serializable {
+    int x;
+    int y;
+    int width;
+    int height;
+    Rectangle();
+    Rectangle(Rectangle arg0);
+    Rectangle(int arg0, int arg1, int arg2, int arg3);
+    Rectangle(int arg0, int arg1);
+    Rectangle(Point arg0, Dimension arg1);
+    Rectangle(Point arg0);
+    Rectangle(Dimension arg0);
+    double getX();
+    double getY();
+    double getWidth();
+    double getHeight();
+    Rectangle getBounds();
+    Rectangle2D getBounds2D();
+    void setBounds(Rectangle arg0);
+    void setBounds(int arg0, int arg1, int arg2, int arg3);
+    void setRect(double arg0, double arg1, double arg2, double arg3);
+    void reshape(int arg0, int arg1, int arg2, int arg3);
+    Point getLocation();
+    void setLocation(Point arg0);
+    void setLocation(int arg0, int arg1);
+    void move(int arg0, int arg1);
+    void translate(int arg0, int arg1);
+    Dimension getSize();
+    void setSize(Dimension arg0);
+    void setSize(int arg0, int arg1);
+    void resize(int arg0, int arg1);
+    boolean contains(Point arg0);
+    boolean contains(int arg0, int arg1);
+    boolean contains(Rectangle arg0);
+    boolean contains(int arg0, int arg1, int arg2, int arg3);
+    boolean inside(int arg0, int arg1);
+    boolean intersects(Rectangle arg0);
+    Rectangle intersection(Rectangle arg0);
+    Rectangle union(Rectangle arg0);
+    void add(int arg0, int arg1);
+    void add(Point arg0);
+    void add(Rectangle arg0);
+    void grow(int arg0, int arg1);
+    boolean isEmpty();
+    int outcode(double arg0, double arg1);
+    Rectangle2D createIntersection(Rectangle2D arg0);
+    Rectangle2D createUnion(Rectangle2D arg0);
+    boolean equals(@Nullable Object arg0);
+    String toString();
+}
+
+class RenderingHints implements Map<Object,Object>, Cloneable {
+    static final Key KEY_ANTIALIASING;
+    static final Object VALUE_ANTIALIAS_ON;
+    static final Object VALUE_ANTIALIAS_OFF;
+    static final Object VALUE_ANTIALIAS_DEFAULT;
+    static final Key KEY_RENDERING;
+    static final Object VALUE_RENDER_SPEED;
+    static final Object VALUE_RENDER_QUALITY;
+    static final Object VALUE_RENDER_DEFAULT;
+    static final Key KEY_DITHERING;
+    static final Object VALUE_DITHER_DISABLE;
+    static final Object VALUE_DITHER_ENABLE;
+    static final Object VALUE_DITHER_DEFAULT;
+    static final Key KEY_TEXT_ANTIALIASING;
+    static final Object VALUE_TEXT_ANTIALIAS_ON;
+    static final Object VALUE_TEXT_ANTIALIAS_OFF;
+    static final Object VALUE_TEXT_ANTIALIAS_DEFAULT;
+    static final Object VALUE_TEXT_ANTIALIAS_GASP;
+    static final Object VALUE_TEXT_ANTIALIAS_LCD_HRGB;
+    static final Object VALUE_TEXT_ANTIALIAS_LCD_HBGR;
+    static final Object VALUE_TEXT_ANTIALIAS_LCD_VRGB;
+    static final Object VALUE_TEXT_ANTIALIAS_LCD_VBGR;
+    static final Key KEY_TEXT_LCD_CONTRAST;
+    static final Key KEY_FRACTIONALMETRICS;
+    static final Object VALUE_FRACTIONALMETRICS_OFF;
+    static final Object VALUE_FRACTIONALMETRICS_ON;
+    static final Object VALUE_FRACTIONALMETRICS_DEFAULT;
+    static final Key KEY_INTERPOLATION;
+    static final Object VALUE_INTERPOLATION_NEAREST_NEIGHBOR;
+    static final Object VALUE_INTERPOLATION_BILINEAR;
+    static final Object VALUE_INTERPOLATION_BICUBIC;
+    static final Key KEY_ALPHA_INTERPOLATION;
+    static final Object VALUE_ALPHA_INTERPOLATION_SPEED;
+    static final Object VALUE_ALPHA_INTERPOLATION_QUALITY;
+    static final Object VALUE_ALPHA_INTERPOLATION_DEFAULT;
+    static final Key KEY_COLOR_RENDERING;
+    static final Object VALUE_COLOR_RENDER_SPEED;
+    static final Object VALUE_COLOR_RENDER_QUALITY;
+    static final Object VALUE_COLOR_RENDER_DEFAULT;
+    static final Key KEY_STROKE_CONTROL;
+    static final Object VALUE_STROKE_DEFAULT;
+    static final Object VALUE_STROKE_NORMALIZE;
+    static final Object VALUE_STROKE_PURE;
+    RenderingHints(@Nullable Map<Key,?> arg0);
+    RenderingHints(Key arg0, Object arg1);
+    int size();
+    boolean isEmpty();
+    boolean containsKey(Object arg0);
+    boolean containsValue(@Nullable Object arg0);
+    @Nullable Object get(Object arg0);
+    @Nullable Object put(Object arg0, Object arg1);
+    void add(RenderingHints arg0);
+    void clear();
+    @Nullable Object remove(Object arg0);
+    void putAll(Map<?,?> arg0);
+    Set<Object> keySet();
+    Collection<Object> values();
+    Set<Entry<Object,Object>> entrySet();
+    boolean equals(@Nullable Object arg0);
+    int hashCode();
+    Object clone();
+    String toString();
+}
+class RenderingHints$Key {
+    protected Key(int arg0);
+    boolean isCompatibleValue(Object arg0);
+    protected int intKey();
+    int hashCode();
+    boolean equals(Object arg0);
+}
+
+class Robot {
+    Robot() throws AWTException;
+    Robot(GraphicsDevice arg0) throws AWTException;
+    void mouseMove(int arg0, int arg1);
+    void mousePress(int arg0);
+    void mouseRelease(int arg0);
+    void mouseWheel(int arg0);
+    void keyPress(int arg0);
+    void keyRelease(int arg0);
+    Color getPixelColor(int arg0, int arg1);
+    BufferedImage createScreenCapture(Rectangle arg0);
+    boolean isAutoWaitForIdle();
+    void setAutoWaitForIdle(boolean arg0);
+    int getAutoDelay();
+    void setAutoDelay(int arg0);
+    void delay(int arg0);
+    void waitForIdle();
+    String toString();
+}
+
+class ScrollPane extends Container implements Accessible {
+    static final int SCROLLBARS_AS_NEEDED;
+    static final int SCROLLBARS_ALWAYS;
+    static final int SCROLLBARS_NEVER;
+    ScrollPane() throws HeadlessException;
+    ScrollPane(int arg0) throws HeadlessException;
+    protected void addImpl(Component arg0, Object arg1, int arg2);
+    int getScrollbarDisplayPolicy();
+    Dimension getViewportSize();
+    int getHScrollbarHeight();
+    int getVScrollbarWidth();
+    Adjustable getVAdjustable();
+    Adjustable getHAdjustable();
+    void setScrollPosition(int arg0, int arg1);
+    void setScrollPosition(Point arg0);
+    Point getScrollPosition();
+    void setLayout(LayoutManager arg0);
+    void doLayout();
+    void layout();
+    void printComponents(Graphics arg0);
+    void addNotify();
+    String paramString();
+    protected void processMouseWheelEvent(MouseWheelEvent arg0);
+    protected boolean eventTypeEnabled(int arg0);
+    void setWheelScrollingEnabled(boolean arg0);
+    boolean isWheelScrollingEnabled();
+    AccessibleContext getAccessibleContext();
+}
+class ScrollPane$AccessibleAWTScrollPane extends AccessibleAWTContainer {
+    protected AccessibleAWTScrollPane();
+    AccessibleRole getAccessibleRole();
+}
+
+class ScrollPaneAdjustable implements Adjustable, Serializable {
+    int getOrientation();
+    void setMinimum(int arg0);
+    int getMinimum();
+    void setMaximum(int arg0);
+    int getMaximum();
+    void setUnitIncrement(int arg0);
+    int getUnitIncrement();
+    void setBlockIncrement(int arg0);
+    int getBlockIncrement();
+    void setVisibleAmount(int arg0);
+    int getVisibleAmount();
+    void setValueIsAdjusting(boolean arg0);
+    boolean getValueIsAdjusting();
+    void setValue(int arg0);
+    int getValue();
+    void addAdjustmentListener(@Nullable AdjustmentListener arg0);
+    void removeAdjustmentListener(@Nullable AdjustmentListener arg0);
+    AdjustmentListener[] getAdjustmentListeners();
+    String toString();
+    String paramString();
+}
+
+class Scrollbar extends Component implements Adjustable, Accessible {
+    static final int HORIZONTAL;
+    static final int VERTICAL;
+    Scrollbar() throws HeadlessException;
+    Scrollbar(int arg0) throws HeadlessException;
+    Scrollbar(int arg0, int arg1, int arg2, int arg3, int arg4) throws HeadlessException;
+    void addNotify();
+    int getOrientation();
+    void setOrientation(int arg0);
+    int getValue();
+    void setValue(int arg0);
+    int getMinimum();
+    void setMinimum(int arg0);
+    int getMaximum();
+    void setMaximum(int arg0);
+    int getVisibleAmount();
+    int getVisible();
+    void setVisibleAmount(int arg0);
+    void setUnitIncrement(int arg0);
+    void setLineIncrement(int arg0);
+    int getUnitIncrement();
+    int getLineIncrement();
+    void setBlockIncrement(int arg0);
+    void setPageIncrement(int arg0);
+    int getBlockIncrement();
+    int getPageIncrement();
+    void setValues(int arg0, int arg1, int arg2, int arg3);
+    boolean getValueIsAdjusting();
+    void setValueIsAdjusting(boolean arg0);
+    void addAdjustmentListener(@Nullable AdjustmentListener arg0);
+    void removeAdjustmentListener(@Nullable AdjustmentListener arg0);
+    AdjustmentListener[] getAdjustmentListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processAdjustmentEvent(AdjustmentEvent arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class Scrollbar$AccessibleAWTScrollBar extends AccessibleAWTComponent implements AccessibleValue {
+    protected AccessibleAWTScrollBar();
+    AccessibleStateSet getAccessibleStateSet();
+    AccessibleRole getAccessibleRole();
+    AccessibleValue getAccessibleValue();
+    Number getCurrentAccessibleValue();
+    boolean setCurrentAccessibleValue(Number arg0);
+    Number getMinimumAccessibleValue();
+    Number getMaximumAccessibleValue();
+}
+
+interface SecondaryLoop {
+    boolean enter();
+    boolean exit();
+}
+
+interface Shape {
+    Rectangle getBounds();
+    Rectangle2D getBounds2D();
+    boolean contains(double arg0, double arg1);
+    boolean contains(Point2D arg0);
+    boolean intersects(double arg0, double arg1, double arg2, double arg3);
+    boolean intersects(Rectangle2D arg0);
+    boolean contains(double arg0, double arg1, double arg2, double arg3);
+    boolean contains(Rectangle2D arg0);
+    PathIterator getPathIterator(@Nullable AffineTransform arg0);
+    PathIterator getPathIterator(@Nullable AffineTransform arg0, double arg1);
+}
+
+class SplashScreen {
+    static @Nullable SplashScreen getSplashScreen();
+    void setImageURL(URL arg0) throws NullPointerException,IOException,IllegalStateException;
+    URL getImageURL() throws IllegalStateException;
+    Rectangle getBounds() throws IllegalStateException;
+    Dimension getSize() throws IllegalStateException;
+    Graphics2D createGraphics() throws IllegalStateException;
+    void update() throws IllegalStateException;
+    void close() throws IllegalStateException;
+    boolean isVisible();
+}
+
+interface Stroke {
+    Shape createStrokedShape(Shape arg0);
+}
+
+class SystemColor extends Color implements Serializable {
+    static final int DESKTOP;
+    static final int ACTIVE_CAPTION;
+    static final int ACTIVE_CAPTION_TEXT;
+    static final int ACTIVE_CAPTION_BORDER;
+    static final int INACTIVE_CAPTION;
+    static final int INACTIVE_CAPTION_TEXT;
+    static final int INACTIVE_CAPTION_BORDER;
+    static final int WINDOW;
+    static final int WINDOW_BORDER;
+    static final int WINDOW_TEXT;
+    static final int MENU;
+    static final int MENU_TEXT;
+    static final int TEXT;
+    static final int TEXT_TEXT;
+    static final int TEXT_HIGHLIGHT;
+    static final int TEXT_HIGHLIGHT_TEXT;
+    static final int TEXT_INACTIVE_TEXT;
+    static final int CONTROL;
+    static final int CONTROL_TEXT;
+    static final int CONTROL_HIGHLIGHT;
+    static final int CONTROL_LT_HIGHLIGHT;
+    static final int CONTROL_SHADOW;
+    static final int CONTROL_DK_SHADOW;
+    static final int SCROLLBAR;
+    static final int INFO;
+    static final int INFO_TEXT;
+    static final int NUM_COLORS;
+    static final SystemColor desktop;
+    static final SystemColor activeCaption;
+    static final SystemColor activeCaptionText;
+    static final SystemColor activeCaptionBorder;
+    static final SystemColor inactiveCaption;
+    static final SystemColor inactiveCaptionText;
+    static final SystemColor inactiveCaptionBorder;
+    static final SystemColor window;
+    static final SystemColor windowBorder;
+    static final SystemColor windowText;
+    static final SystemColor menu;
+    static final SystemColor menuText;
+    static final SystemColor text;
+    static final SystemColor textText;
+    static final SystemColor textHighlight;
+    static final SystemColor textHighlightText;
+    static final SystemColor textInactiveText;
+    static final SystemColor control;
+    static final SystemColor controlText;
+    static final SystemColor controlHighlight;
+    static final SystemColor controlLtHighlight;
+    static final SystemColor controlShadow;
+    static final SystemColor controlDkShadow;
+    static final SystemColor scrollbar;
+    static final SystemColor info;
+    static final SystemColor infoText;
+    String toString();
+}
+
+class SystemTray {
+    static SystemTray getSystemTray();
+    static boolean isSupported();
+    void add(TrayIcon arg0) throws AWTException;
+    void remove(@Nullable TrayIcon arg0);
+    TrayIcon[] getTrayIcons();
+    Dimension getTrayIconSize();
+    void addPropertyChangeListener(String arg0, @Nullable PropertyChangeListener arg1);
+    void removePropertyChangeListener(String arg0, @Nullable PropertyChangeListener arg1);
+    PropertyChangeListener[] getPropertyChangeListeners(@Nullable String arg0);
+}
+
+class TextArea extends TextComponent {
+    static final int SCROLLBARS_BOTH;
+    static final int SCROLLBARS_VERTICAL_ONLY;
+    static final int SCROLLBARS_HORIZONTAL_ONLY;
+    static final int SCROLLBARS_NONE;
+    TextArea() throws HeadlessException;
+    TextArea(@Nullable String arg0) throws HeadlessException;
+    TextArea(int arg0, int arg1) throws HeadlessException;
+    TextArea(@Nullable String arg0, int arg1, int arg2) throws HeadlessException;
+    TextArea(@Nullable String arg0, int arg1, int arg2, int arg3) throws HeadlessException;
+    void addNotify();
+    void insert(String arg0, int arg1);
+    void insertText(String arg0, int arg1);
+    void append(String arg0);
+    void appendText(String arg0);
+    void replaceRange(String arg0, int arg1, int arg2);
+    void replaceText(String arg0, int arg1, int arg2);
+    int getRows();
+    void setRows(int arg0);
+    int getColumns();
+    void setColumns(int arg0);
+    int getScrollbarVisibility();
+    Dimension getPreferredSize(int arg0, int arg1);
+    Dimension preferredSize(int arg0, int arg1);
+    Dimension getPreferredSize();
+    Dimension preferredSize();
+    Dimension getMinimumSize(int arg0, int arg1);
+    Dimension minimumSize(int arg0, int arg1);
+    Dimension getMinimumSize();
+    Dimension minimumSize();
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class TextArea$AccessibleAWTTextArea extends AccessibleAWTTextComponent {
+    protected AccessibleAWTTextArea();
+    AccessibleStateSet getAccessibleStateSet();
+}
+
+class TextComponent extends Component implements Accessible {
+    protected TextListener textListener;
+    void enableInputMethods(boolean arg0);
+    @Nullable InputMethodRequests getInputMethodRequests();
+    void addNotify();
+    void removeNotify();
+    void setText(@Nullable String arg0);
+    String getText();
+    String getSelectedText();
+    boolean isEditable();
+    void setEditable(boolean arg0);
+    Color getBackground();
+    void setBackground(@Nullable Color arg0);
+    int getSelectionStart();
+    void setSelectionStart(int arg0);
+    int getSelectionEnd();
+    void setSelectionEnd(int arg0);
+    void select(int arg0, int arg1);
+    void selectAll();
+    void setCaretPosition(int arg0);
+    int getCaretPosition();
+    void addTextListener(@Nullable TextListener arg0);
+    void removeTextListener(@Nullable TextListener arg0);
+    TextListener[] getTextListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processTextEvent(TextEvent arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class TextComponent$AccessibleAWTTextComponent extends AccessibleAWTComponent implements AccessibleText, TextListener {
+    AccessibleAWTTextComponent();
+    void textValueChanged(TextEvent arg0);
+    AccessibleStateSet getAccessibleStateSet();
+    AccessibleRole getAccessibleRole();
+    AccessibleText getAccessibleText();
+    int getIndexAtPoint(Point arg0);
+    @Nullable Rectangle getCharacterBounds(int arg0);
+    int getCharCount();
+    int getCaretPosition();
+    AttributeSet getCharacterAttribute(int arg0);
+    int getSelectionStart();
+    int getSelectionEnd();
+    @Nullable String getSelectedText();
+    @Nullable String getAtIndex(int arg0, int arg1);
+    @Nullable String getAfterIndex(int arg0, int arg1);
+    @Nullable String getBeforeIndex(int arg0, int arg1);
+}
+
+class TextField extends TextComponent {
+    TextField() throws HeadlessException;
+    TextField(@Nullable String arg0) throws HeadlessException;
+    TextField(int arg0) throws HeadlessException;
+    TextField(@Nullable String arg0, int arg1) throws HeadlessException;
+    void addNotify();
+    char getEchoChar();
+    void setEchoChar(char arg0);
+    void setEchoCharacter(char arg0);
+    void setText(String arg0);
+    boolean echoCharIsSet();
+    int getColumns();
+    void setColumns(int arg0);
+    Dimension getPreferredSize(int arg0);
+    Dimension preferredSize(int arg0);
+    Dimension getPreferredSize();
+    Dimension preferredSize();
+    Dimension getMinimumSize(int arg0);
+    Dimension minimumSize(int arg0);
+    Dimension getMinimumSize();
+    Dimension minimumSize();
+    void addActionListener(@Nullable ActionListener arg0);
+    void removeActionListener(@Nullable ActionListener arg0);
+    ActionListener[] getActionListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processActionEvent(ActionEvent arg0);
+    protected String paramString();
+    AccessibleContext getAccessibleContext();
+}
+class TextField$AccessibleAWTTextField extends AccessibleAWTTextComponent {
+    protected AccessibleAWTTextField();
+    AccessibleStateSet getAccessibleStateSet();
+}
+
+class TexturePaint implements Paint {
+    TexturePaint(BufferedImage arg0, Rectangle2D arg1);
+    BufferedImage getImage();
+    Rectangle2D getAnchorRect();
+    PaintContext createContext(@Nullable ColorModel arg0, Rectangle arg1, Rectangle2D arg2, AffineTransform arg3, RenderingHints arg4);
+    int getTransparency();
+}
+
+class Toolkit {
+    protected final Map<String,Object> desktopProperties;
+    protected final PropertyChangeSupport desktopPropsSupport;
+    Toolkit();
+    protected DesktopPeer createDesktopPeer(Desktop arg0) throws HeadlessException;
+    protected ButtonPeer createButton(Button arg0) throws HeadlessException;
+    protected TextFieldPeer createTextField(TextField arg0) throws HeadlessException;
+    protected LabelPeer createLabel(Label arg0) throws HeadlessException;
+    protected ListPeer createList(List arg0) throws HeadlessException;
+    protected CheckboxPeer createCheckbox(Checkbox arg0) throws HeadlessException;
+    protected ScrollbarPeer createScrollbar(Scrollbar arg0) throws HeadlessException;
+    protected ScrollPanePeer createScrollPane(ScrollPane arg0) throws HeadlessException;
+    protected TextAreaPeer createTextArea(TextArea arg0) throws HeadlessException;
+    protected ChoicePeer createChoice(Choice arg0) throws HeadlessException;
+    protected FramePeer createFrame(Frame arg0) throws HeadlessException;
+    protected CanvasPeer createCanvas(Canvas arg0);
+    protected PanelPeer createPanel(Panel arg0);
+    protected WindowPeer createWindow(Window arg0) throws HeadlessException;
+    protected DialogPeer createDialog(Dialog arg0) throws HeadlessException;
+    protected MenuBarPeer createMenuBar(MenuBar arg0) throws HeadlessException;
+    protected MenuPeer createMenu(Menu arg0) throws HeadlessException;
+    protected PopupMenuPeer createPopupMenu(PopupMenu arg0) throws HeadlessException;
+    protected MenuItemPeer createMenuItem(MenuItem arg0) throws HeadlessException;
+    protected FileDialogPeer createFileDialog(FileDialog arg0) throws HeadlessException;
+    protected CheckboxMenuItemPeer createCheckboxMenuItem(CheckboxMenuItem arg0) throws HeadlessException;
+    protected MouseInfoPeer getMouseInfoPeer();
+    protected LightweightPeer createComponent(Component arg0);
+    protected FontPeer getFontPeer(String arg0, int arg1);
+    protected void loadSystemColors(int[] arg0) throws HeadlessException;
+    void setDynamicLayout(boolean arg0) throws HeadlessException;
+    protected boolean isDynamicLayoutSet() throws HeadlessException;
+    boolean isDynamicLayoutActive() throws HeadlessException;
+    Dimension getScreenSize() throws HeadlessException;
+    int getScreenResolution() throws HeadlessException;
+    Insets getScreenInsets(GraphicsConfiguration arg0) throws HeadlessException;
+    ColorModel getColorModel() throws HeadlessException;
+    String[] getFontList();
+    FontMetrics getFontMetrics(Font arg0);
+    void sync();
+    static Toolkit getDefaultToolkit();
+    Image getImage(String arg0);
+    Image getImage(URL arg0);
+    Image createImage(String arg0);
+    Image createImage(URL arg0);
+    boolean prepareImage(Image arg0, int arg1, int arg2, ImageObserver arg3);
+    int checkImage(Image arg0, int arg1, int arg2, ImageObserver arg3);
+    Image createImage(ImageProducer arg0);
+    Image createImage(byte[] arg0);
+    Image createImage(byte[] arg0, int arg1, int arg2);
+    @Nullable PrintJob getPrintJob(Frame arg0, @Nullable String arg1, @Nullable Properties arg2);
+    @Nullable PrintJob getPrintJob(Frame arg0, @Nullable String arg1, @Nullable JobAttributes arg2, @Nullable PageAttributes arg3);
+    void beep();
+    Clipboard getSystemClipboard() throws HeadlessException;
+    @Nullable Clipboard getSystemSelection() throws HeadlessException;
+    int getMenuShortcutKeyMask() throws HeadlessException;
+    boolean getLockingKeyState(int arg0) throws UnsupportedOperationException;
+    void setLockingKeyState(int arg0, boolean arg1) throws UnsupportedOperationException;
+    protected static Container getNativeContainer(Component arg0);
+    Cursor createCustomCursor(Image arg0, Point arg1, String arg2) throws IndexOutOfBoundsException,HeadlessException;
+    Dimension getBestCursorSize(int arg0, int arg1) throws HeadlessException;
+    int getMaximumCursorColors() throws HeadlessException;
+    boolean isFrameStateSupported(int arg0) throws HeadlessException;
+    static String getProperty(String arg0, String arg1);
+    EventQueue getSystemEventQueue();
+    protected EventQueue getSystemEventQueueImpl();
+    DragSourceContextPeer createDragSourceContextPeer(DragGestureEvent arg0) throws InvalidDnDOperationException;
+    @Nullable <T> T createDragGestureRecognizer(Class<T> arg0, DragSource arg1, Component arg2, int arg3, DragGestureListener arg4);
+    Object getDesktopProperty(String arg0);
+    protected void setDesktopProperty(String arg0, Object arg1);
+    protected Object lazilyLoadDesktopProperty(String arg0);
+    protected void initializeDesktopProperties();
+    void addPropertyChangeListener(@Nullable String arg0, @Nullable PropertyChangeListener arg1);
+    void removePropertyChangeListener(@Nullable String arg0, @Nullable PropertyChangeListener arg1);
+    PropertyChangeListener[] getPropertyChangeListeners();
+    PropertyChangeListener[] getPropertyChangeListeners(String arg0);
+    boolean isAlwaysOnTopSupported();
+    boolean isModalityTypeSupported(ModalityType arg0);
+    boolean isModalExclusionTypeSupported(ModalExclusionType arg0);
+    void addAWTEventListener(@Nullable AWTEventListener arg0, long arg1);
+    void removeAWTEventListener(@Nullable AWTEventListener arg0);
+    AWTEventListener[] getAWTEventListeners();
+    AWTEventListener[] getAWTEventListeners(long arg0);
+    @Nullable Map<TextAttribute,?> mapInputMethodHighlight(InputMethodHighlight arg0) throws HeadlessException;
+    boolean areExtraMouseButtonsEnabled() throws HeadlessException;
+}
+
+interface Transparency {
+    static final int OPAQUE;
+    static final int BITMASK;
+    static final int TRANSLUCENT;
+    int getTransparency();
+}
+
+class TrayIcon {
+    TrayIcon(Image arg0);
+    TrayIcon(Image arg0, @Nullable String arg1);
+    TrayIcon(Image arg0, @Nullable String arg1, @Nullable PopupMenu arg2);
+    void setImage(Image arg0);
+    Image getImage();
+    void setPopupMenu(@Nullable PopupMenu arg0);
+    @Nullable PopupMenu getPopupMenu();
+    void setToolTip(@Nullable String arg0);
+    @Nullable String getToolTip();
+    void setImageAutoSize(boolean arg0);
+    boolean isImageAutoSize();
+    void addMouseListener(@Nullable MouseListener arg0);
+    void removeMouseListener(@Nullable MouseListener arg0);
+    MouseListener[] getMouseListeners();
+    void addMouseMotionListener(@Nullable MouseMotionListener arg0);
+    void removeMouseMotionListener(@Nullable MouseMotionListener arg0);
+    MouseMotionListener[] getMouseMotionListeners();
+    @Nullable String getActionCommand();
+    void setActionCommand(@Nullable String arg0);
+    void addActionListener(@Nullable ActionListener arg0);
+    void removeActionListener(@Nullable ActionListener arg0);
+    ActionListener[] getActionListeners();
+    void displayMessage(@Nullable String arg0, String arg1, MessageType arg2);
+    void displayMessage(String arg0, @Nullable String arg1, MessageType arg2);
+    Dimension getSize();
+}
+
+class Window extends Container implements Accessible {
+    Window(@Nullable Frame arg0);
+    Window(@Nullable Window arg0);
+    Window(@Nullable Window arg0, @Nullable GraphicsConfiguration arg1);
+    List<Image> getIconImages();
+    void setIconImages(@Nullable List<? extends Image> arg0);
+    void setIconImage(Image arg0);
+    void addNotify();
+    void removeNotify();
+    void pack();
+    void setMinimumSize(@Nullable Dimension arg0);
+    void setSize(Dimension arg0);
+    void setSize(int arg0, int arg1);
+    void setLocation(int arg0, int arg1);
+    void setLocation(Point arg0);
+    void reshape(int arg0, int arg1, int arg2, int arg3);
+    void setVisible(boolean arg0);
+    void show();
+    void hide();
+    void dispose();
+    void toFront();
+    void toBack();
+    Toolkit getToolkit();
+    @Nullable String getWarningString();
+    Locale getLocale();
+    @Nullable InputContext getInputContext();
+    void setCursor(@Nullable Cursor arg0);
+    Window getOwner();
+    Window[] getOwnedWindows();
+    static Window[] getWindows();
+    static Window[] getOwnerlessWindows();
+    void setModalExclusionType(@Nullable ModalExclusionType arg0);
+    ModalExclusionType getModalExclusionType();
+    void addWindowListener(@Nullable WindowListener arg0);
+    void addWindowStateListener(@Nullable WindowStateListener arg0);
+    void addWindowFocusListener(@Nullable WindowFocusListener arg0);
+    void removeWindowListener(@Nullable WindowListener arg0);
+    void removeWindowStateListener(@Nullable WindowStateListener arg0);
+    void removeWindowFocusListener(@Nullable WindowFocusListener arg0);
+    WindowListener[] getWindowListeners();
+    WindowFocusListener[] getWindowFocusListeners();
+    WindowStateListener[] getWindowStateListeners();
+    <T> T[] getListeners(Class<T> arg0);
+    protected void processEvent(AWTEvent arg0);
+    protected void processWindowEvent(WindowEvent arg0);
+    protected void processWindowFocusEvent(WindowEvent arg0);
+    protected void processWindowStateEvent(WindowEvent arg0);
+    void setAlwaysOnTop(boolean arg0) throws SecurityException;
+    boolean isAlwaysOnTopSupported();
+    boolean isAlwaysOnTop();
+    @Nullable Component getFocusOwner();
+    @Nullable Component getMostRecentFocusOwner();
+    boolean isActive();
+    boolean isFocused();
+    Set<AWTKeyStroke> getFocusTraversalKeys(int arg0);
+    void setFocusCycleRoot(boolean arg0);
+    boolean isFocusCycleRoot();
+    @Nullable Container getFocusCycleRootAncestor();
+    boolean isFocusableWindow();
+    boolean getFocusableWindowState();
+    void setFocusableWindowState(boolean arg0);
+    void setAutoRequestFocus(boolean arg0);
+    boolean isAutoRequestFocus();
+    void addPropertyChangeListener(@Nullable PropertyChangeListener arg0);
+    void addPropertyChangeListener(String arg0, @Nullable PropertyChangeListener arg1);
+    boolean isValidateRoot();
+    boolean postEvent(Event arg0);
+    boolean isShowing();
+    void applyResourceBundle(ResourceBundle arg0);
+    void applyResourceBundle(String arg0);
+    void setType(Type arg0);
+    Type getType();
+    AccessibleContext getAccessibleContext();
+    void setLocationRelativeTo(@Nullable Component arg0);
+    void createBufferStrategy(int arg0);
+    void createBufferStrategy(int arg0, BufferCapabilities arg1) throws AWTException;
+    @Nullable BufferStrategy getBufferStrategy();
+    void setLocationByPlatform(boolean arg0);
+    boolean isLocationByPlatform();
+    void setBounds(int arg0, int arg1, int arg2, int arg3);
+    void setBounds(Rectangle arg0);
+    float getOpacity();
+    void setOpacity(float arg0);
+    @Nullable Shape getShape();
+    void setShape(@Nullable Shape arg0);
+    Color getBackground();
+    void setBackground(@Nullable Color arg0);
+    boolean isOpaque();
+    void paint(Graphics arg0);
+}
+class Window$AccessibleAWTWindow extends AccessibleAWTContainer {
+    protected AccessibleAWTWindow();
+    AccessibleRole getAccessibleRole();
+    AccessibleStateSet getAccessibleStateSet();
+}

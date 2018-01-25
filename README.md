@@ -31,3 +31,6 @@ The annotated source code appears at the following locations:
 javadoc.astub models the JavaDoc classes in the JDK's com.sun.javadoc package,
 which are not exposed by ct.sym and therefore cannot be part of an
 annotated JDK. These are annotated for the Index and Nullness checkers.
+
+awt.astub annotated for the Nullness Checker with following command it can used :  
+javac -processor nullness -Astubs=awt.astub:stubs MyFile.java  
