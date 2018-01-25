@@ -16,8 +16,8 @@ so that they can include it in the Checker Framework distribution.
 For jdk8.jar, see file `README.jdk`.
 
 When adding a .jar or .astub file to this directory, update the below list.
-In general, old files need not be removed; that way, we accommodate users
-regardless of which version of a library they wish to use.
+Don't remove old files, to accommodate users regardless of which version of
+a library they wish to use.
 
 The annotated source code appears at the following locations:
 
