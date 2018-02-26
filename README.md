@@ -1,33 +1,35 @@
-# Annotated Libraries
+The Travis jobs that use the Checker Framework download the annotated JDK from
+this repository. Which version of the JDK is determined by the commit hash
+specified in checker/build.xml.
 
-Pre-built versions of several libraries containing additional specifications.
+Therefore, if some pull request changes the annotated JDK, a new version built
+using the pull request should be added to this repository.  The pull request
+should then update checker/build.xml to use the commit hash of the new version.
+If a conflict on this line occurs, then merge master into the pull request and
+start over.
 
-## Instructions for users
+More specifically, you should:
 
-During type-checking, put these versions on your classpath,
-to obtain more precise type-checking with fewer false positive warnings.
+1. In the branch that contains your Checker Framework pull request, do:
 
+    git pull git@github.com:typetools/checker-framework.git
+    cd checker
+    ant jdk.jar
 
-## Instructions for people creating a new annotated library
+2. Upload dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
+to this repository.  You can do by committing it to
+https://github.com/typetools/annotated-libraries or via
+https://github.com/typetools/annotated-libraries/upload/master.
 
-If you annotate a new library, please inform the Checker Framework developers
-so that they can include it in the Checker Framework distribution.
+3. In the branch that contains your Checker Framework pull request,
+in file `checker/build.xml`, in the `download-jdk` task,
+change the hash to the hash of your commit to this repository.
 
-For jdk8.jar, see file `README.jdk`.
+4. Wait for Travis to successfully build the pull request.
 
-When adding a .jar or .astub file to this directory, update the below list.
-Don't remove old files, to accommodate users regardless of which version of
-a library they wish to use.
+5. If the pull request suffers a merge conflict on the line that contains
+the commit hash, then start over at step 1.
 
-The annotated source code appears at the following locations:
+5. Merge the pull request.  (Never merge any pull request that does not
+pass its tests!)
 
-- bcel.jar : from https://github.com/typetools/commons-bcel (version 5.2)
-- commons-bcel-6.0.jar : from https://github.com/typetools/commons-bcel
-- commons-io-2.5.jar : from https://github.com/typetools/commons-io
-                     to build, see its file README-typetools.md
-- guava-19.0.jar : from https://github.com/typetools/guava
-- java-getopt-1.0.14.jar : from https://github.com/typetools/java-getopt
-
-javadoc.astub models the JavaDoc classes in the JDK's com.sun.javadoc package,
-which are not exposed by ct.sym and therefore cannot be part of an
-annotated JDK. These are annotated for the Index and Nullness checkers.
