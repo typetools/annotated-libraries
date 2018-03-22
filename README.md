@@ -22,8 +22,8 @@ https://github.com/typetools/annotated-libraries or via
 https://github.com/typetools/annotated-libraries/upload/master.
 
 3. In the branch that contains your Checker Framework pull request,
-in file `checker/build.xml`, in the `download-jdk` task,
-change the hash to the hash of your commit to this repository.
+in file `jdk8/build.gradle`, in the `downloadJdk` task,
+assign the hash of your commit to shaHash.
 
 4. Wait for Travis to successfully build the pull request.
 
