@@ -11,10 +11,10 @@ start over.
 More specifically, you should:
 
 1. In the branch that contains your Checker Framework pull request, do:
-
+````
     git pull git@github.com:typetools/checker-framework.git
-    cd checker
-    ant jdk.jar
+    ./gradlew buildJdk
+````
 
 2. Upload dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
 to this repository.  You can do by committing it to
