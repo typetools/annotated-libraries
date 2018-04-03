@@ -11,10 +11,10 @@ start over.
 More specifically, you should:
 
 1. In the branch that contains your Checker Framework pull request, do:
-
+````
     git pull git@github.com:typetools/checker-framework.git
-    cd checker
-    ant jdk.jar
+    ./gradlew buildJdk
+````
 
 2. Upload dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
 to this repository.  You can do by committing it to
@@ -22,8 +22,8 @@ https://github.com/typetools/annotated-libraries or via
 https://github.com/typetools/annotated-libraries/upload/master.
 
 3. In the branch that contains your Checker Framework pull request,
-in file `checker/build.xml`, in the `download-jdk` task,
-change the hash to the hash of your commit to this repository.
+in file `jdk8/build.gradle`, in the `downloadJdk` task,
+assign the hash of your commit to shaHash.
 
 4. Wait for Travis to successfully build the pull request.
 
