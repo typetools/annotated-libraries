@@ -21,20 +21,20 @@ More specifically, you should:
 ./gradlew allNullnessTest -PbuiltJdk=
 ````
 
-2. Upload checker/dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
+3. Upload checker/dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
 to this repository.  You can do by committing it to
 https://github.com/typetools/annotated-libraries or via
 https://github.com/typetools/annotated-libraries/upload/master.
 
-3. In the branch that contains your Checker Framework pull request,
+4. In the branch that contains your Checker Framework pull request,
 in file `checker/build.gradle`, in the `downloadJdk` task,
 assign the hash of your commit to shaHash.
 
-4. Wait for Travis to successfully build the pull request.
+5. Wait for Travis to successfully build the pull request.
 
-5. If the pull request suffers a merge conflict on the line that contains
+6. If the pull request suffers a merge conflict on the line that contains
 the commit hash, then start over at step 1.
 
-5. Merge the pull request.  (Never merge any pull request that does not
+7. Merge the pull request.  (Never merge any pull request that does not
 pass its tests!)
 
