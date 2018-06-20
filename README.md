@@ -18,8 +18,7 @@ Then, do:
     ./gradlew buildJdk
 ````
 
-2. Upload checker/dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
-to this repository.  You can do by committing it to
+2. Upload `checker/jdk/jdk8.jar` to this repository.  You can do by committing it to
 https://github.com/typetools/annotated-libraries or via
 https://github.com/typetools/annotated-libraries/upload/master.
 
