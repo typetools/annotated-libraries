@@ -16,9 +16,9 @@ More specifically, you should:
     ./gradlew buildJdk
 ````
 
-2. To use the built version of the jdk8.jar in another tasks, pass `-PbuiltJdk=`. For example,
+2. To use the built version of the jdk8.jar in another tasks, pass `-PlocalJdk`. For example,
 ````
-./gradlew allNullnessTest -PbuiltJdk=
+./gradlew allNullnessTest -PlocalJdk
 ````
 
 3. Upload checker/dist/jdk8.jar (or checker/jdk/jdk8.jar, they are the same)
