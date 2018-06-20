@@ -4,9 +4,9 @@ specified in checker/build.xml.
 
 Therefore, if some pull request changes the annotated JDK, a new version built
 using the pull request should be added to this repository.  The pull request
-should then update checker/build.gradle to use the commit hash of the new version.
-If a conflict on this line occurs, then merge master into the pull request and
-start over.
+should then update checker/build.gradle to use the commit hash of the new
+version.  If a conflict on this line occurs, then merge master into the pull
+request and start over.
 
 More specifically, you should:
 
@@ -18,12 +18,14 @@ Then, do:
     ./gradlew buildJdk
 ````
 
-2. Upload `checker/jdk/jdk8.jar` to this repository.  You can do by committing it to
-https://github.com/typetools/annotated-libraries or via
+2. Upload `checker/jdk/jdk8.jar` to this repository.
+You can do by committing it to
+https://github.com/typetools/annotated-libraries and pushing, or via
 https://github.com/typetools/annotated-libraries/upload/master.
 
 3. In the branch that contains your Checker Framework pull request,
-in file `checker/build.gradle`, assign the hash of your commit to jdkShaHash.
+in file `checker/build.gradle`, set `jdkShaHash` to the hash of your
+commit in this repository.  Commit and push.
 
 4. Wait for Travis to successfully build the pull request.
 
