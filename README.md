@@ -10,16 +10,14 @@ request and start over.
 
 More specifically, you should:
 
-1. In the branch that contains your Checker Framework pull request,
-in file `checker/build.gradle`, set `jdkShaHash` to `'local'`.
-Then, do:
+1. In the branch that contains your Checker Framework pull request, do:
 ````
     git pull git@github.com:typetools/checker-framework.git
-    ./gradlew buildJdk
+    ./gradlew buildJdk -PuseLocalJdk
 ````
 
 2. Upload `checker/jdk/jdk8.jar` to this repository.
-You can do by committing it to
+You can do so by committing it to
 https://github.com/typetools/annotated-libraries and pushing, or via
 https://github.com/typetools/annotated-libraries/upload/master.
 
