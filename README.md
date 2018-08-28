@@ -1,6 +1,6 @@
 The Travis jobs that use the Checker Framework download the annotated JDK from
 this repository. Which version of the JDK is determined by the commit hash
-specified in checker/build.xml.
+jdkShaHash specified in checker/build.gradle.
 
 Therefore, if some pull request changes the annotated JDK, a new version built
 using the pull request should be added to this repository.  The pull request
