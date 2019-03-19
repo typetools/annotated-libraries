@@ -1,3 +1,7 @@
+Desipte its name `annotated-libraries`, this repository contains only
+the annotated JDK.  Other annotated libraries can be found at
+https://search.maven.org/search?q=annotatedlib .
+
 The Travis jobs that use the Checker Framework download the annotated JDK from
 this repository. Which version of the JDK is determined by the commit hash
 jdkShaHash specified in checker/build.gradle.
