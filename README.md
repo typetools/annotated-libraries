@@ -7,7 +7,7 @@ this repository.  Which version of the JDK is determined by the commit hash
 `jdkShaHash` specified in `checker/build.gradle`.
 
 
-== How to update the binaries in this repository
+## How to update the binaries in this repository
 
 If you make a pull request that changes the annotated JDK, you should add a
 new annotated JDK binary to this repository.
