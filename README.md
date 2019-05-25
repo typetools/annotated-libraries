@@ -3,16 +3,14 @@ the annotated JDK.  Other annotated libraries can be found at
 https://search.maven.org/search?q=annotatedlib .
 
 The Travis jobs that use the Checker Framework download the annotated JDK from
-this repository. Which version of the JDK is determined by the commit hash
-jdkShaHash specified in checker/build.gradle.
+this repository.  Which version of the JDK is determined by the commit hash
+`jdkShaHash` specified in `checker/build.gradle`.
 
-Therefore, if some pull request changes the annotated JDK, a new version built
-using the pull request should be added to this repository.  The pull request
-should then update checker/build.gradle to use the commit hash of the new
-version.  If a conflict on this line occurs, then merge master into the pull
-request and start over.
 
-More specifically, you should:
+== How to update the binaries in this repository
+
+If you make a pull request that changes the annotated JDK, you should add a
+new annotated JDK binary to this repository.
 
 1. In the branch that contains your Checker Framework pull request, do:
 ````
