@@ -1,5 +1,5 @@
 Desipte its name `annotated-libraries`, this repository contains only
-binaries for the annotated JDK.  Binaries for Other annotated libraries can
+binaries for the annotated JDK.  Binaries for other annotated libraries can
 be found at https://search.maven.org/search?q=annotatedlib .
 
 The Travis jobs that use the Checker Framework download the annotated JDK from
