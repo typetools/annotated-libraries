@@ -9,8 +9,9 @@ this repository.  Which version of the JDK is determined by the commit hash
 
 ## How to update the binaries in this repository
 
-If you make a pull request that changes the annotated JDK, you should add a
-new annotated JDK binary to this repository.
+If you make a pull request that changes the annotated JDK source code in
+the [checker-framework](https://github.com/typetools/checker-framework)
+repository, you should add a new annotated JDK binary to this repository.
 
 1. In the branch that contains your Checker Framework pull request, do:
 ````
