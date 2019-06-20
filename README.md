@@ -6,6 +6,11 @@ The Travis jobs that use the Checker Framework download the annotated JDK from
 this repository.  Which version of the JDK is determined by the commit hash
 `jdkShaHash` specified in `checker/build.gradle`.
 
+If you commit to this repository, no build will use the new version.
+This means that committing to this repository cannot break anyone else's
+build, and that you need to update the Checker Framework to refer to the
+version you added to this repository.
+
 
 ## How to update the binaries in this repository
 
@@ -20,9 +25,13 @@ repository, you should add a new annotated JDK binary to this repository.
 ````
 
 2. Upload `checker/jdk/jdk8.jar` to this repository.
-You can do so by committing it to
-https://github.com/typetools/annotated-libraries and pushing, or via
-https://github.com/typetools/annotated-libraries/upload/master.
+You can do so in two ways:
+ * a normal commit:
+    * update your clone of https://github.com/typetools/annotated-libraries
+    * copy `checker/jdk/jdk8.jar` to this repository
+    * commit
+    * push
+ * or via https://github.com/typetools/annotated-libraries/upload/master
 
 3. In the branch that contains your Checker Framework pull request,
 in file `checker/build.gradle`, set `jdkShaHash` to the hash of your
