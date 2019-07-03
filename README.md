@@ -25,13 +25,16 @@ repository, you should add a new annotated JDK binary to this repository.
 ````
 
 2. Upload `checker/jdk/jdk8.jar` to this repository.
-You can do so in two ways:
- * a normal commit:
-    * update your clone of https://github.com/typetools/annotated-libraries
-    * copy `checker/jdk/jdk8.jar` to this repository
-    * commit
-    * push
- * or via https://github.com/typetools/annotated-libraries/upload/master
+The commit message should mention the fork and branch.
+For example: "Fork mernst, branch remove-nullness-rawness-checker"
+
+You upload in two ways:
+ * Commit in your clone of https://github.com/typetools/annotated-libraries .
+    * `git pull`
+    * Copy `checker/jdk/jdk8.jar` to this repository.
+    * Commit
+    * `git push`
+ * Or via https://github.com/typetools/annotated-libraries/upload/master
 
 3. In the branch that contains your Checker Framework pull request,
 in file `checker/build.gradle`, set `jdkShaHash` to the hash of your
