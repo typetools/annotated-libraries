@@ -48,3 +48,18 @@ the commit hash, then start over at step 1.
 6. Merge the pull request.  (Never merge any pull request that does not
 pass its tests!)
 
+
+## How to determine from what sources a particular annotated JDK binary was built
+
+Running `unzip -p jdk8.jar META-INF/MANIFEST.MF` outputs something like:
+
+````
+Manifest-Version: 1.0
+Checker-Framework-Version: 2764d848a
+Creation-Date: Wed 03 Jul 2019 03:57:29 PM PDT
+Created-By: 1.8.0_212 (Oracle Corporation)
+````
+
+The `Checker-Framework-Version` is the commit hash from which the annotated JDK was built.
+The commit message should tell you from which fork and branch of the Checker Framework
+the sources are.
