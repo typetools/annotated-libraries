@@ -18,6 +18,10 @@ If you make a pull request that changes the annotated JDK source code in
 the [checker-framework](https://github.com/typetools/checker-framework)
 repository, you should add a new annotated JDK binary to this repository.
 
+(You also need to make the same edits in the Java 11  annotated JDK, in
+repository https://github.com/typetools/jdk.  Ensure that each of the pull
+requests refers to the other, so that they can be merged at the same time.)
+
 1. In the branch that contains your Checker Framework pull request, do:
 ````
     git pull git@github.com:typetools/checker-framework.git
@@ -28,7 +32,8 @@ repository, you should add a new annotated JDK binary to this repository.
    The commit message should mention the fork and branch.
    For example: "Fork mernst, branch remove-nullness-rawness-checker"
 
-   You upload in one of two ways:
+   If you have write permission to this repository,
+   you upload in one of two ways:
    * Commit in your clone of https://github.com/typetools/annotated-libraries .
      * `git pull`
      * Copy `checker/jdk/jdk8.jar` to this repository.
@@ -36,16 +41,18 @@ repository, you should add a new annotated JDK binary to this repository.
      * `git push`
    * Or via https://github.com/typetools/annotated-libraries/upload/master
 
+   If you do not have write permission in this repository, make a pull
+   request, which the maintainers should merge rather than squash-and-merge.
+
 3. In the branch that contains your Checker Framework pull request,
 in file `checker/build.gradle`, set `jdkShaHash` to the hash of your
 commit in this repository.  Commit and push.
 
-4. Wait for Travis to successfully build the pull request.
+4. Wait for CI to successfully build the pull request.  If the pull request
+suffers a merge conflict on the line that contains the commit hash, then
+start over at step 1.
 
-5. If the pull request suffers a merge conflict on the line that contains
-the commit hash, then start over at step 1.
-
-6. Merge the pull request.  (Never merge any pull request that does not
+5. Merge the pull request.  (Never merge any pull request that does not
 pass its tests!)
 
 
