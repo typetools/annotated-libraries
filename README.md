@@ -2,14 +2,16 @@ Despite its name `annotated-libraries`, this repository contains only
 binaries for the annotated JDK.  Binaries for other annotated libraries can
 be found at https://search.maven.org/search?q=annotatedlib .
 
-The Travis jobs that use the Checker Framework download the annotated JDK from
-this repository.  Which version of the JDK is determined by the commit hash
-`jdkShaHash` specified in `checker/build.gradle`.
+The Checker Framework can download the annotated JDK from this repository
+rather than building it, which would take a long time.  Which version of
+the JDK is determined by the commit hash `jdkShaHash` specified in
+`checker/build.gradle`.
 
 If you commit to this repository, no build will use the new version.
-This means that committing to this repository cannot break anyone else's
-build, and that you need to update the Checker Framework to refer to the
-version you added to this repository.
+This means that:
+ * committing to this repository cannot break anyone else's build, and
+ * you need to update the Checker Framework to refer to the
+   version you added to this repository.
 
 
 ## How to update the binaries in this repository
