@@ -36,7 +36,7 @@ requests refers to the other, so that they can be merged at the same time.)
    For example: "Fork mernst, branch remove-nullness-rawness-checker"
 
    If you do not have write permission in this repository, make a pull
-   request, which the maintainers should merge rather than squash-and-merge.
+   request, and the maintainers will perform step 5 below.
 
    If you have write permission to this repository,
    you upload in one of two ways:
@@ -55,8 +55,8 @@ commit in this repository.  Commit and push.
 suffers a merge conflict on the line that contains the commit hash, then
 start over at step 1.
 
-5. Merge the pull request.  (Never merge any pull request that does not
-pass its tests!)
+5. Merge the pull request.  Don't squash-and-merge because that changes the
+SHA hash.  Never merge any pull request that does not pass its tests!
 
 
 ## How to determine from what sources a particular annotated JDK binary was built
