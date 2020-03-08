@@ -35,6 +35,9 @@ requests refers to the other, so that they can be merged at the same time.)
    The commit message should mention the fork and branch.
    For example: "Fork mernst, branch remove-nullness-rawness-checker"
 
+   If you do not have write permission in this repository, make a pull
+   request, which the maintainers should merge rather than squash-and-merge.
+
    If you have write permission to this repository,
    you upload in one of two ways:
    * Commit in your clone of https://github.com/typetools/annotated-libraries .
@@ -43,9 +46,6 @@ requests refers to the other, so that they can be merged at the same time.)
      * Commit
      * `git push`
    * Or via https://github.com/typetools/annotated-libraries/upload/master
-
-   If you do not have write permission in this repository, make a pull
-   request, which the maintainers should merge rather than squash-and-merge.
 
 3. In the branch that contains your Checker Framework pull request,
 in file `checker/build.gradle`, set `jdkShaHash` to the hash of your
