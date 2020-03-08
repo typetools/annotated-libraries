@@ -24,7 +24,8 @@ repository, you should add a new annotated JDK binary to this repository.
 repository https://github.com/typetools/jdk.  Ensure that each of the pull
 requests refers to the other, so that they can be merged at the same time.)
 
-1. In the branch that contains your Checker Framework pull request, do:
+1. In the branch that contains your Checker Framework pull request, run
+(using JDK 8):
 ````
     git pull git@github.com:typetools/checker-framework.git
     ./gradlew buildJdk -PuseLocalJdk
