@@ -36,7 +36,8 @@ requests refers to the other, so that they can be merged at the same time.)
    For example: "Fork mernst, branch remove-nullness-rawness-checker"
 
    If you do not have write permission in this repository, make a pull
-   request, and the maintainers will perform step 5 below.
+   request, wait for it to be merged, and then proceed with step 4; after
+   which the maintainers will perform step 5.
 
    If you have write permission to this repository,
    you upload in one of two ways:
