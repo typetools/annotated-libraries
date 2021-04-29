@@ -1,3 +1,9 @@
+## This repository is obsolete
+
+The annotated JDK is now read as stub files.
+
+## Old README
+
 Despite its name `annotated-libraries`, this repository contains only
 binaries for the annotated JDK.  Binaries for other annotated libraries can
 be found at https://search.maven.org/search?q=annotatedlib .
